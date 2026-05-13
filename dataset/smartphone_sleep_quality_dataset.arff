@@ -1,0 +1,522 @@
+@relation smartphone_sleep_quality
+
+@attribute idade NUMERIC
+@attribute genero {masculino,feminino}
+@attribute horas_uso_diario NUMERIC
+@attribute tempo_redes_sociais NUMERIC
+@attribute horas_sono NUMERIC
+@attribute uso_madrugada {0,1}
+@attribute atividade_fisica {alta,moderada,baixa}
+@attribute ocupacao {advogado,analista,aposentado,autonomo,desempregado,enfermeiro,engenheiro,estudante,freelancer,gerente,influencer,medico,professor}
+@attribute modelo_dispositivo {Asus ROG Phone 7,Google Pixel 7,Huawei P60,Motorola Edge 40,OnePlus 11,Realme 10 Pro,Samsung Galaxy A54,Samsung Galaxy S23,Xiaomi Redmi Note 12,iPhone 13,iPhone 14,iPhone 15 Pro}
+@attribute nivel_estresse NUMERIC
+@attribute consumo_energia NUMERIC
+@attribute despertares_noturnos NUMERIC
+@attribute notificacoes_diarias NUMERIC
+@attribute luminosidade_ambiente NUMERIC
+@attribute insonia {0,1}
+@attribute uso_apps_produtividade {0,1}
+@attribute nivel_uso {baixo,moderado,alto}
+@attribute qualidade_sono {bom,ruim}
+
+@data
+33,masculino,9.9,7.3,6.1,1,moderada,autonomo,Samsung Galaxy A54,9.8,7.9,4,296,673.1,0,1,alto,ruim
+23,masculino,12.9,5.8,5.8,1,alta,influencer,Samsung Galaxy S23,8.4,6.9,3,364,322.6,0,0,alto,bom
+54,masculino,6.8,2.9,6.7,0,baixa,gerente,Xiaomi Redmi Note 12,6.8,4.8,3,327,214.1,1,1,moderado,ruim
+22,masculino,7.8,3.4,5.9,1,moderada,estudante,OnePlus 11,7.0,6.5,3,126,454.5,1,0,alto,ruim
+21,feminino,8.5,3.0,6.5,0,moderada,estudante,OnePlus 11,7.1,5.8,3,124,536.8,0,1,moderado,ruim
+22,feminino,5.0,3.7,6.0,0,baixa,estudante,Google Pixel 7,5.6,5.6,1,108,558.7,0,1,moderado,ruim
+28,feminino,2.5,0.8,?,0,alta,professor,Huawei P60,2.6,2.1,1,?,111.8,0,0,baixo,bom
+32,masculino,7.4,6.4,6.4,0,baixa,influencer,Realme 10 Pro,6.9,7.5,3,477,599.0,1,0,alto,ruim
+28,masculino,9.2,1.3,?,1,baixa,estudante,OnePlus 11,5.5,4.1,2,126,531.0,1,0,alto,ruim
+46,masculino,25.0,1.2,6.1,0,baixa,gerente,Huawei P60,6.4,5.1,2,293,371.2,0,0,moderado,bom
+29,feminino,20.0,?,7.3,0,alta,autonomo,Realme 10 Pro,4.7,1.2,1,44,394.7,0,1,baixo,bom
+32,masculino,8.5,5.9,6.0,0,baixa,desempregado,iPhone 15 Pro,6.1,8.1,2,394,470.2,1,1,alto,ruim
+44,feminino,5.9,1.3,6.0,0,moderada,analista,Realme 10 Pro,6.4,4.3,3,196,443.0,1,1,moderado,bom
+22,feminino,6.1,3.0,7.8,0,alta,estudante,iPhone 13,7.9,6.8,1,69,496.4,0,0,moderado,ruim
+24,feminino,4.8,2.5,7.4,0,baixa,estudante,Motorola Edge 40,6.3,5.4,3,123,485.5,0,1,moderado,ruim
+21,masculino,5.8,3.2,6.6,1,moderada,estudante,OnePlus 11,5.5,6.8,2,106,255.7,0,1,moderado,ruim
+25,masculino,4.8,2.9,5.7,0,moderada,estudante,Samsung Galaxy A54,7.9,5.0,3,74,414.6,0,1,moderado,bom
+23,masculino,8.9,2.2,5.5,1,baixa,autonomo,Google Pixel 7,6.4,7.3,4,155,490.9,1,0,alto,ruim
+38,feminino,8.6,5.0,6.2,1,baixa,influencer,Motorola Edge 40,9.2,5.1,4,?,449.8,1,1,alto,ruim
+24,masculino,4.6,2.7,5.5,1,baixa,estudante,Samsung Galaxy S23,8.5,5.1,2,115,221.9,0,0,moderado,ruim
+20,masculino,9.2,3.8,4.7,1,moderada,estudante,Google Pixel 7,4.1,7.7,1,207,466.2,1,0,alto,ruim
+30,feminino,2.6,1.0,9.0,0,alta,enfermeiro,Huawei P60,3.6,1.6,0,38,219.2,0,0,baixo,bom
+21,masculino,5.9,4.5,6.8,1,baixa,estudante,iPhone 14,7.1,4.8,2,138,262.1,1,0,moderado,bom
+27,feminino,11.9,5.6,4.1,1,moderada,autonomo,Realme 10 Pro,6.1,5.9,2,385,307.9,1,0,alto,ruim
+33,feminino,8.6,5.0,6.2,0,moderada,influencer,Motorola Edge 40,8.7,5.8,3,463,305.2,1,1,alto,ruim
+32,masculino,5.1,2.8,6.6,0,moderada,analista,Xiaomi Redmi Note 12,7.8,5.1,2,222,365.6,0,1,moderado,bom
+24,feminino,8.3,3.5,7.7,0,moderada,estudante,Xiaomi Redmi Note 12,7.0,6.0,3,116,287.2,0,1,moderado,ruim
+28,masculino,10.1,3.5,5.1,1,baixa,autonomo,Samsung Galaxy S23,5.6,6.0,3,103,456.0,1,0,alto,ruim
+19,masculino,9.0,2.7,5.7,1,moderada,autonomo,iPhone 14,4.7,7.0,12,212,498.1,1,0,alto,ruim
+39,feminino,3.7,1.0,?,0,moderada,professor,iPhone 15 Pro,2.1,1.8,1,23,248.9,0,1,baixo,bom
+17,feminino,10.4,2.5,5.4,1,baixa,desempregado,iPhone 14,7.2,6.8,2,209,544.4,1,0,alto,ruim
+25,feminino,4.9,3.6,7.6,0,baixa,estudante,OnePlus 11,7.9,5.5,3,186,458.7,0,1,moderado,bom
+25,masculino,5.0,1.1,7.9,0,alta,autonomo,Asus ROG Phone 7,2.6,1.3,0,67,323.5,0,1,baixo,bom
+-10,masculino,9.2,7.8,5.4,0,baixa,autonomo,OnePlus 11,6.6,7.3,5,523,564.7,0,0,alto,ruim
+32,feminino,9.8,10.0,4.0,1,baixa,desempregado,Xiaomi Redmi Note 12,5.3,5.0,2,253,315.0,1,0,alto,ruim
+38,feminino,4.7,?,6.5,1,baixa,analista,Motorola Edge 40,8.1,6.4,1,373,213.5,1,1,moderado,ruim
+25,masculino,5.3,3.8,7.9,0,?,estudante,iPhone 14,5.7,7.0,1,191,459.9,0,1,moderado,ruim
+28,feminino,2.6,1.3,?,0,baixa,professor,Asus ROG Phone 7,4.8,4.0,0,43,327.5,0,1,baixo,bom
+34,feminino,5.7,2.2,?,1,alta,engenheiro,Google Pixel 7,6.4,7.6,3,358,442.9,0,1,moderado,ruim
+28,feminino,9.6,6.9,5.5,1,baixa,autonomo,Huawei P60,6.3,8.4,-3,318,537.0,0,0,alto,ruim
+36,feminino,4.6,1.3,8.3,0,moderada,professor,Google Pixel 7,2.7,3.8,0,61,156.8,0,0,baixo,bom
+37,feminino,12.9,4.9,6.7,1,baixa,autonomo,Huawei P60,6.0,6.1,4,493,552.7,1,0,alto,ruim
+40,feminino,4.3,1.0,8.9,0,moderada,enfermeiro,iPhone 13,2.3,3.8,1,24,190.3,0,1,baixo,bom
+22,masculino,7.3,9.4,6.9,0,moderada,influencer,Motorola Edge 40,8.0,5.1,2,394,495.5,0,0,alto,ruim
+20,masculino,6.1,3.4,?,0,baixa,estudante,Motorola Edge 40,8.4,6.1,1,78,547.2,0,1,moderado,bom
+52,masculino,7.8,2.5,5.9,0,moderada,analista,Xiaomi Redmi Note 12,6.1,6.6,2,359,342.0,0,1,moderado,bom
+24,masculino,8.2,4.3,6.9,1,moderada,estudante,Huawei P60,8.9,3.7,2,60,439.3,0,1,moderado,bom
+19,feminino,9.9,2.0,5.2,1,alta,estudante,Realme 10 Pro,5.9,6.7,2,294,688.8,0,0,alto,bom
+28,masculino,10.5,1.4,4.2,1,baixa,autonomo,Samsung Galaxy A54,4.8,5.4,4,287,429.0,0,0,alto,ruim
+24,feminino,5.6,4.9,5.6,0,baixa,estudante,iPhone 15 Pro,5.7,3.4,2,158,212.6,0,1,moderado,ruim
+29,masculino,11.3,?,5.0,0,baixa,desempregado,Motorola Edge 40,7.4,8.1,3,224,365.6,1,0,alto,ruim
+45,feminino,6.1,1.7,5.9,0,?,medico,OnePlus 11,6.1,4.6,1,295,299.7,0,1,moderado,ruim
+23,feminino,9.5,6.0,6.5,1,alta,autonomo,Realme 10 Pro,6.7,6.4,3,792,316.0,0,0,alto,ruim
+29,feminino,12.2,9.5,5.3,1,baixa,autonomo,Huawei P60,6.5,6.9,5,341,610.4,1,0,alto,ruim
+21,masculino,8.5,1.2,4.9,1,baixa,autonomo,Realme 10 Pro,6.3,6.7,1,?,524.9,1,0,alto,ruim
+27,feminino,9.4,6.2,4.7,0,baixa,desempregado,iPhone 15 Pro,6.8,7.7,2,469,535.2,0,0,alto,ruim
+32,masculino,3.1,1.0,8.6,0,alta,autonomo,Samsung Galaxy A54,2.6,1.3,0,23,259.4,0,1,baixo,bom
+21,masculino,5.6,3.5,5.1,1,alta,estudante,Realme 10 Pro,7.7,3.1,1,196,432.0,1,1,moderado,ruim
+35,feminino,28.0,0.6,8.9,0,alta,professor,Samsung Galaxy S23,4.2,1.5,0,77,176.6,0,0,baixo,bom
+18,feminino,8.2,4.6,7.3,1,baixa,estudante,Motorola Edge 40,7.7,3.9,2,115,460.5,1,1,moderado,bom
+20,masculino,10.4,7.5,6.3,1,?,influencer,iPhone 14,7.6,6.3,4,432,604.9,0,0,alto,ruim
+18,feminino,4.0,3.0,6.1,1,baixa,estudante,Huawei P60,7.2,5.4,2,122,205.9,0,1,moderado,bom
+48,masculino,5.7,2.9,6.7,0,alta,gerente,Huawei P60,6.4,6.1,1,243,318.3,0,1,moderado,bom
+30,masculino,10.6,7.6,4.2,0,moderada,freelancer,Motorola Edge 40,9.7,6.4,2,320,402.7,1,0,alto,ruim
+22,feminino,7.1,4.1,5.8,0,moderada,estudante,Google Pixel 7,5.5,6.4,3,85,318.1,0,1,moderado,bom
+21,feminino,10.9,2.1,5.1,1,baixa,autonomo,Samsung Galaxy A54,6.1,6.4,4,?,469.9,1,0,alto,ruim
+36,feminino,2.9,16.9,8.7,0,moderada,autonomo,Motorola Edge 40,2.4,2.3,0,34,360.8,0,1,baixo,bom
+36,feminino,4.0,?,5.5,0,moderada,gerente,iPhone 14,6.8,6.4,3,?,333.7,0,1,moderado,ruim
+41,masculino,3.0,?,8.5,0,moderada,aposentado,Xiaomi Redmi Note 12,3.2,2.1,0,57,232.7,0,0,baixo,ruim
+28,feminino,10.6,8.4,4.7,1,baixa,autonomo,OnePlus 11,6.5,6.5,5,467,433.4,1,1,alto,bom
+45,masculino,3.9,1.8,5.8,0,moderada,advogado,Realme 10 Pro,8.4,7.7,1,219,245.7,0,0,moderado,bom
+24,feminino,7.1,2.3,7.3,1,baixa,estudante,Samsung Galaxy A54,5.6,3.3,1,91,336.7,0,1,moderado,ruim
+35,masculino,2.8,1.4,8.7,0,moderada,autonomo,Samsung Galaxy A54,3.7,2.2,-2,43,261.9,0,0,baixo,bom
+47,feminino,4.1,2.6,5.6,1,?,engenheiro,iPhone 14,8.9,6.3,3,272,343.8,1,1,moderado,ruim
+52,masculino,4.6,2.9,6.7,0,moderada,medico,iPhone 14,7.5,4.9,1,333,236.6,0,0,moderado,bom
+-1,masculino,3.0,1.0,6.2,0,moderada,medico,Xiaomi Redmi Note 12,6.6,4.8,2,326,385.8,1,1,moderado,ruim
+30,masculino,4.3,1.4,6.4,0,baixa,gerente,iPhone 13,7.8,5.2,2,258,327.8,1,0,moderado,ruim
+28,feminino,3.2,1.3,8.5,0,alta,enfermeiro,Google Pixel 7,3.3,3.4,1,60,156.9,0,1,baixo,bom
+32,feminino,8.4,?,5.1,1,baixa,autonomo,Motorola Edge 40,7.1,5.6,2,452,397.4,0,0,alto,ruim
+42,feminino,4.9,0.6,7.2,0,moderada,enfermeiro,Huawei P60,2.2,1.8,1,35,334.4,0,1,baixo,bom
+24,feminino,12.3,?,6.6,1,alta,influencer,iPhone 13,5.2,5.2,4,595,620.9,1,1,alto,ruim
+130,masculino,11.9,3.9,5.9,1,baixa,autonomo,iPhone 13,6.2,7.3,1,173,433.0,0,0,alto,ruim
+19,masculino,7.3,2.0,5.8,1,moderada,estudante,Asus ROG Phone 7,7.1,3.2,3,171,317.1,0,1,moderado,bom
+39,masculino,4.0,?,7.7,0,alta,professor,Realme 10 Pro,3.3,2.3,1,76,172.2,0,1,baixo,bom
+23,feminino,8.1,4.6,7.5,0,moderada,estudante,iPhone 13,8.9,6.0,2,?,221.5,0,0,moderado,ruim
+22,masculino,4.5,4.1,5.3,0,baixa,estudante,OnePlus 11,8.4,5.9,2,142,403.3,1,1,moderado,bom
+51,masculino,6.8,1.3,5.9,1,moderada,medico,Xiaomi Redmi Note 12,9.0,4.4,2,340,261.2,0,1,moderado,bom
+-1,masculino,10.7,2.7,4.0,1,baixa,estudante,Asus ROG Phone 7,7.8,5.5,2,112,522.2,0,0,alto,ruim
+24,masculino,12.3,8.0,5.2,1,moderada,estudante,iPhone 15 Pro,7.5,6.4,5,?,535.3,1,0,alto,ruim
+31,masculino,11.4,6.4,6.0,0,baixa,influencer,Xiaomi Redmi Note 12,8.0,5.3,2,266,614.0,0,0,alto,ruim
+33,feminino,3.0,0.9,7.2,0,alta,autonomo,Google Pixel 7,4.2,1.9,-1,58,248.8,0,0,baixo,bom
+-10,masculino,7.8,1.4,6.1,0,moderada,engenheiro,Samsung Galaxy S23,7.8,6.3,3,378,434.8,1,0,moderado,ruim
+150,feminino,5.4,1.9,6.9,0,baixa,analista,Xiaomi Redmi Note 12,7.3,6.9,3,147,383.1,1,1,moderado,bom
+29,feminino,6.3,1.8,?,1,moderada,autonomo,Samsung Galaxy A54,5.7,7.4,2,?,741.2,1,0,alto,ruim
+37,feminino,6.9,1.2,5.5,0,baixa,medico,iPhone 15 Pro,8.5,7.2,2,248,493.9,1,1,moderado,ruim
+26,feminino,25.0,7.9,4.5,1,moderada,freelancer,iPhone 15 Pro,6.4,7.7,4,493,391.0,1,0,alto,ruim
+23,masculino,7.4,?,4.9,1,baixa,estudante,iPhone 14,4.4,7.4,2,244,516.2,0,1,alto,ruim
+39,masculino,11.0,5.4,6.6,1,moderada,influencer,Samsung Galaxy A54,6.1,5.5,4,206,402.2,0,0,alto,ruim
+36,masculino,2.3,0.8,7.6,0,moderada,autonomo,Motorola Edge 40,3.4,2.2,0,46,158.7,0,1,baixo,bom
+40,feminino,2.9,1.1,7.4,0,alta,aposentado,Motorola Edge 40,3.7,1.5,1,41,369.2,0,1,baixo,bom
+25,feminino,4.2,1.3,7.6,0,baixa,autonomo,Asus ROG Phone 7,4.4,2.5,1,45,395.2,0,0,baixo,bom
+28,masculino,7.0,1.0,5.1,1,moderada,autonomo,iPhone 15 Pro,4.3,6.9,1,268,727.6,0,0,alto,ruim
+21,masculino,6.3,3.1,6.5,0,moderada,estudante,iPhone 15 Pro,6.0,3.5,1,160,368.0,0,0,moderado,ruim
+24,masculino,9.5,3.2,5.6,1,baixa,estudante,Motorola Edge 40,7.0,4.4,2,80,672.7,1,0,alto,bom
+17,feminino,9.0,9.3,4.6,1,baixa,estudante,iPhone 13,6.6,8.0,5,339,623.0,1,0,alto,ruim
+24,feminino,4.8,3.2,6.1,1,moderada,estudante,Xiaomi Redmi Note 12,6.7,6.2,2,62,368.6,1,0,moderado,ruim
+34,masculino,13.0,6.8,6.5,0,baixa,autonomo,Google Pixel 7,8.5,7.1,4,307,387.4,1,1,alto,ruim
+29,masculino,4.4,2.6,5.1,0,baixa,gerente,Motorola Edge 40,6.2,7.5,3,199,302.1,0,1,moderado,bom
+24,feminino,6.1,2.8,7.4,0,baixa,estudante,Motorola Edge 40,5.9,5.0,3,133,213.1,0,1,moderado,bom
+25,masculino,2.2,1.4,7.9,0,alta,aposentado,Samsung Galaxy A54,3.8,2.9,1,1000,171.2,0,1,baixo,bom
+21,masculino,8.8,3.8,7.2,0,baixa,estudante,Samsung Galaxy A54,8.6,3.0,1,?,563.0,1,1,moderado,ruim
+21,masculino,6.3,3.3,6.4,0,baixa,estudante,Samsung Galaxy S23,5.0,3.9,1,?,335.5,0,1,moderado,ruim
+21,masculino,9.4,?,5.9,1,baixa,influencer,OnePlus 11,8.5,7.0,4,795,352.6,1,0,alto,ruim
+39,masculino,6.6,2.2,5.6,0,alta,analista,iPhone 13,6.0,6.5,1,177,217.9,0,1,moderado,ruim
+21,masculino,8.2,1.4,4.8,1,baixa,autonomo,Xiaomi Redmi Note 12,5.4,7.8,3,?,544.8,0,1,alto,ruim
+33,masculino,12.2,8.6,4.4,0,baixa,desempregado,Realme 10 Pro,8.3,7.8,4,469,333.8,1,0,alto,ruim
+33,feminino,7.1,1.1,5.8,0,baixa,medico,OnePlus 11,7.6,7.4,2,167,315.3,0,1,moderado,bom
+18,masculino,4.1,3.1,5.1,1,baixa,estudante,iPhone 14,5.7,4.7,1,184,338.4,1,1,moderado,bom
+28,feminino,7.4,7.0,4.9,1,moderada,autonomo,Motorola Edge 40,7.3,7.2,-1,300,688.8,1,0,alto,ruim
+17,feminino,7.3,3.8,4.8,1,baixa,estudante,iPhone 13,5.2,7.6,1,290,525.6,0,0,alto,bom
+54,feminino,7.8,1.8,5.8,0,baixa,medico,Asus ROG Phone 7,7.7,6.2,3,350,332.1,1,1,moderado,ruim
+17,feminino,8.6,9.8,5.7,1,baixa,desempregado,Xiaomi Redmi Note 12,5.6,8.3,2,669,593.8,1,0,alto,ruim
+21,masculino,4.7,4.6,7.1,0,moderada,estudante,Google Pixel 7,8.6,5.9,2,181,252.3,0,1,moderado,bom
+30,masculino,4.8,0.6,7.9,0,alta,aposentado,Samsung Galaxy A54,3.8,2.1,0,32,328.5,0,1,baixo,bom
+22,masculino,8.9,3.2,7.5,0,baixa,estudante,Xiaomi Redmi Note 12,5.8,3.4,3,121,538.8,0,1,moderado,bom
+28,masculino,11.8,7.7,4.1,1,moderada,freelancer,Xiaomi Redmi Note 12,8.8,5.5,3,275,621.8,1,1,alto,bom
+28,masculino,6.4,2.7,5.6,1,baixa,gerente,iPhone 13,8.2,4.6,3,330,397.6,0,1,moderado,bom
+17,feminino,7.5,7.0,5.2,1,baixa,influencer,Huawei P60,7.3,7.8,2,260,647.6,0,1,alto,ruim
+29,feminino,2.4,1.2,8.3,0,moderada,autonomo,Realme 10 Pro,2.9,1.5,10,21,275.0,0,1,baixo,bom
+16,feminino,8.5,3.3,4.4,1,moderada,autonomo,iPhone 15 Pro,7.3,6.2,3,195,585.3,1,0,alto,ruim
+31,feminino,13.5,6.9,5.2,1,moderada,influencer,iPhone 14,8.9,6.1,3,185,375.6,0,0,alto,ruim
+25,masculino,6.3,3.0,7.8,1,alta,estudante,Asus ROG Phone 7,6.4,4.1,3,103,515.6,0,1,moderado,bom
+32,masculino,2.3,1.2,8.0,0,moderada,aposentado,OnePlus 11,2.0,1.5,1,59,389.8,0,0,baixo,bom
+20,feminino,7.9,3.9,5.1,1,alta,estudante,Huawei P60,8.5,4.9,1,148,508.3,1,0,moderado,ruim
+26,feminino,11.3,6.9,6.6,0,moderada,desempregado,OnePlus 11,7.4,6.2,2,590,595.4,1,0,alto,ruim
+23,feminino,8.5,2.9,6.1,1,moderada,estudante,iPhone 15 Pro,7.2,3.4,3,?,564.4,0,0,moderado,bom
+16,masculino,8.0,3.7,4.5,1,moderada,autonomo,Huawei P60,5.6,7.0,2,138,487.9,1,0,alto,ruim
+30,feminino,4.8,1.4,5.9,0,moderada,analista,OnePlus 11,7.0,5.5,1,189,393.9,0,1,moderado,ruim
+37,masculino,12.7,5.8,5.2,1,?,autonomo,iPhone 14,8.4,6.9,2,385,532.9,0,1,alto,ruim
+28,masculino,10.4,8.9,4.6,0,?,estudante,iPhone 15 Pro,8.4,6.3,3,788,510.9,0,1,alto,ruim
+31,masculino,9.0,8.6,5.6,1,moderada,autonomo,Samsung Galaxy S23,8.7,7.0,2,226,466.3,1,0,alto,ruim
+25,masculino,7.1,4.8,7.3,0,moderada,estudante,Xiaomi Redmi Note 12,5.7,4.8,1,66,537.5,0,0,moderado,bom
+24,masculino,9.2,7.8,7.0,0,alta,autonomo,Huawei P60,7.0,6.7,4,175,548.9,0,1,alto,ruim
+25,masculino,8.8,3.6,7.9,0,moderada,estudante,Realme 10 Pro,8.1,4.2,1,124,512.5,0,0,moderado,bom
+22,masculino,7.9,3.1,6.7,0,moderada,estudante,iPhone 15 Pro,6.3,6.4,3,73,371.5,1,1,moderado,bom
+27,feminino,3.2,1.4,9.0,1,moderada,professor,Xiaomi Redmi Note 12,3.2,3.3,1,77,273.1,0,0,baixo,bom
+23,masculino,9.9,1.7,4.4,0,baixa,autonomo,Google Pixel 7,4.9,4.2,1,118,746.7,1,0,alto,ruim
+22,masculino,9.1,3.3,4.6,1,moderada,desempregado,iPhone 15 Pro,7.6,5.7,4,?,599.0,1,0,alto,ruim
+31,masculino,2.6,0.6,7.1,0,alta,autonomo,Realme 10 Pro,4.5,1.1,1,66,205.8,0,1,baixo,bom
+18,feminino,8.7,3.2,6.6,0,baixa,estudante,Huawei P60,7.1,3.2,3,91,321.7,0,1,moderado,ruim
+29,masculino,8.3,8.3,6.2,0,baixa,autonomo,iPhone 13,7.9,8.3,2,422,660.8,0,0,alto,ruim
+21,masculino,7.3,2.2,6.6,0,moderada,estudante,Asus ROG Phone 7,6.1,5.5,2,110,579.7,0,1,moderado,bom
+40,masculino,2.5,1.5,?,0,alta,autonomo,Google Pixel 7,4.4,1.4,0,71,203.4,1,1,baixo,bom
+24,masculino,8.9,4.5,6.3,0,baixa,influencer,Samsung Galaxy S23,7.2,6.9,4,285,662.6,1,0,alto,ruim
+31,masculino,12.1,5.5,5.7,1,moderada,estudante,Samsung Galaxy S23,7.2,6.7,3,489,347.4,0,0,alto,bom
+19,masculino,8.0,4.0,6.9,1,baixa,estudante,Asus ROG Phone 7,8.2,4.0,2,140,533.1,0,1,moderado,bom
+29,masculino,4.4,1.6,5.7,0,moderada,gerente,Huawei P60,7.2,4.3,3,185,329.8,0,1,moderado,ruim
+38,masculino,6.2,2.3,6.3,0,?,medico,Realme 10 Pro,9.0,5.3,3,?,203.4,0,0,moderado,ruim
+22,masculino,6.8,2.6,6.7,1,baixa,estudante,OnePlus 11,6.1,3.8,2,?,315.0,0,0,moderado,bom
+30,feminino,7.8,1.6,5.2,0,baixa,analista,iPhone 13,6.0,7.9,1,302,412.0,0,1,moderado,ruim
+31,masculino,13.7,?,4.5,0,moderada,influencer,iPhone 13,6.8,7.4,4,388,463.3,1,0,alto,ruim
+22,masculino,8.4,3.5,4.4,1,alta,estudante,iPhone 15 Pro,4.0,5.7,1,244,765.8,1,0,alto,ruim
+26,feminino,9.5,2.8,?,1,moderada,desempregado,Samsung Galaxy S23,7.3,4.2,4,86,542.4,1,1,alto,bom
+20,masculino,7.3,2.8,?,1,baixa,autonomo,Samsung Galaxy A54,5.5,6.0,2,253,559.0,0,0,alto,bom
+30,masculino,3.3,0.7,8.6,0,moderada,professor,Samsung Galaxy A54,4.6,1.1,1,44,362.1,0,0,baixo,bom
+42,feminino,6.9,1.8,-1.4,0,baixa,medico,Motorola Edge 40,7.8,5.6,2,108,263.0,1,1,moderado,ruim
+21,masculino,4.6,3.5,7.4,0,baixa,estudante,Xiaomi Redmi Note 12,8.3,5.7,1,100,323.9,1,1,moderado,ruim
+20,feminino,8.1,?,5.9,0,alta,estudante,Motorola Edge 40,7.5,4.5,1,92,327.4,0,1,moderado,bom
+31,masculino,4.4,1.4,7.7,0,alta,autonomo,Samsung Galaxy A54,2.9,2.4,0,63,215.4,0,1,baixo,bom
+28,masculino,10.7,1.9,-1.4,1,baixa,autonomo,Xiaomi Redmi Note 12,5.0,5.4,1,?,607.7,0,0,alto,ruim
+38,feminino,4.1,2.9,6.2,0,baixa,gerente,Xiaomi Redmi Note 12,8.0,5.6,3,161,298.3,0,1,moderado,ruim
+43,masculino,3.5,1.4,7.9,0,alta,professor,iPhone 13,4.3,3.0,1,77,332.9,0,0,baixo,bom
+21,masculino,7.3,3.1,5.8,1,?,estudante,Asus ROG Phone 7,7.5,4.8,1,?,612.6,0,0,alto,ruim
+21,feminino,6.0,3.9,5.0,1,moderada,estudante,Realme 10 Pro,8.5,4.6,2,195,226.6,0,1,moderado,ruim
+27,masculino,12.0,2.7,4.6,1,baixa,desempregado,OnePlus 11,5.5,5.9,3,224,683.5,1,0,alto,ruim
+21,feminino,8.0,4.3,6.6,1,baixa,estudante,iPhone 15 Pro,7.2,5.1,2,154,503.4,1,1,moderado,bom
+38,masculino,4.7,1.8,?,0,baixa,medico,iPhone 15 Pro,8.7,6.3,2,146,342.2,0,1,moderado,ruim
+26,feminino,9.3,5.7,6.7,1,baixa,autonomo,iPhone 15 Pro,8.8,6.5,5,380,618.5,1,0,alto,ruim
+33,masculino,8.9,6.3,4.6,1,baixa,desempregado,OnePlus 11,6.1,7.6,5,666,604.3,1,1,alto,ruim
+32,feminino,2.1,?,7.1,0,alta,professor,Huawei P60,2.1,3.0,0,73,366.4,0,0,baixo,bom
+24,masculino,5.2,3.7,5.2,1,alta,estudante,Google Pixel 7,8.7,6.2,3,60,386.3,0,1,moderado,ruim
+44,masculino,4.5,0.9,7.0,0,alta,enfermeiro,Samsung Galaxy A54,2.1,3.7,1,38,139.8,0,1,baixo,bom
+23,feminino,9.3,5.3,5.9,0,moderada,estudante,Google Pixel 7,7.3,7.3,5,427,448.6,0,0,alto,ruim
+24,feminino,12.2,7.3,6.8,1,moderada,estudante,iPhone 14,6.4,8.5,2,?,552.7,1,0,alto,bom
+18,masculino,7.7,?,6.2,1,moderada,estudante,iPhone 14,7.7,6.3,1,62,511.6,0,1,moderado,bom
+-1,masculino,5.7,2.0,5.8,0,baixa,analista,Motorola Edge 40,6.2,7.0,1,278,410.8,1,1,moderado,bom
+44,feminino,6.5,2.2,6.0,0,baixa,engenheiro,iPhone 13,8.4,7.5,1,160,264.9,0,1,moderado,bom
+29,masculino,6.8,2.0,4.9,1,baixa,autonomo,Xiaomi Redmi Note 12,6.2,7.2,2,116,590.0,1,0,alto,ruim
+22,masculino,11.9,1.5,4.2,1,baixa,desempregado,Realme 10 Pro,4.9,4.1,4,160,541.5,1,0,alto,ruim
+25,masculino,4.4,5.0,5.8,1,baixa,estudante,Google Pixel 7,7.3,6.2,1,141,402.2,1,1,moderado,ruim
+34,feminino,3.4,0.8,8.6,0,alta,professor,Samsung Galaxy A54,4.2,2.7,1,66,358.7,0,1,baixo,bom
+34,masculino,9.2,6.0,5.5,0,baixa,desempregado,Samsung Galaxy A54,8.4,6.4,5,?,431.3,1,0,alto,ruim
+19,masculino,8.1,7.8,5.7,1,moderada,desempregado,Huawei P60,7.2,6.5,4,284,528.4,1,0,alto,ruim
+18,masculino,7.7,3.8,5.9,1,?,autonomo,Xiaomi Redmi Note 12,7.8,7.6,2,240,629.3,1,0,alto,ruim
+-5,feminino,6.6,14.7,7.3,0,baixa,estudante,Samsung Galaxy S23,7.5,6.0,1,124,340.5,1,1,moderado,bom
+18,feminino,5.0,2.7,7.7,0,baixa,estudante,Asus ROG Phone 7,7.8,5.5,3,131,481.6,0,1,moderado,bom
+40,masculino,6.8,1.1,6.3,0,baixa,advogado,iPhone 15 Pro,8.3,4.5,2,183,455.9,0,0,moderado,bom
+30,feminino,9.0,7.3,6.3,0,baixa,influencer,Huawei P60,6.5,8.2,3,650,350.2,0,1,alto,ruim
+26,masculino,9.3,5.3,4.1,0,baixa,estudante,Samsung Galaxy S23,5.9,6.4,2,776,567.1,0,0,alto,ruim
+46,feminino,7.2,2.9,6.8,0,moderada,engenheiro,Motorola Edge 40,8.9,4.0,3,311,386.8,0,1,moderado,ruim
+17,masculino,7.6,?,5.7,0,baixa,autonomo,Motorola Edge 40,4.8,4.7,1,236,509.2,1,0,alto,bom
+28,feminino,2.2,1.4,8.3,0,?,aposentado,iPhone 13,2.3,3.8,1,47,359.5,0,0,baixo,bom
+20,masculino,5.5,2.9,5.3,0,baixa,estudante,Xiaomi Redmi Note 12,6.4,4.7,3,76,494.0,0,1,moderado,ruim
+21,feminino,9.6,5.8,?,1,moderada,desempregado,Huawei P60,7.9,7.6,5,692,526.6,0,0,alto,ruim
+20,feminino,11.0,?,4.2,1,baixa,desempregado,Samsung Galaxy A54,4.9,4.3,3,242,413.0,0,0,alto,ruim
+28,masculino,2.9,1.4,8.6,0,?,autonomo,iPhone 15 Pro,3.3,2.0,0,23,307.6,0,1,baixo,bom
+30,masculino,3.1,1.3,8.6,0,alta,aposentado,Samsung Galaxy S23,3.0,1.6,0,?,244.6,0,1,baixo,bom
+49,masculino,4.9,1.9,5.6,0,moderada,analista,Samsung Galaxy S23,7.3,6.4,3,?,274.9,0,1,moderado,ruim
+43,masculino,2.7,0.7,8.0,0,alta,autonomo,Samsung Galaxy S23,3.9,1.7,1,76,114.0,0,1,baixo,bom
+25,feminino,7.8,3.6,6.6,1,moderada,estudante,Motorola Edge 40,7.2,3.1,3,81,288.0,0,0,moderado,ruim
+20,masculino,7.6,1.9,5.7,1,baixa,desempregado,iPhone 15 Pro,5.3,5.1,1,149,417.2,0,0,alto,ruim
+52,masculino,3.0,2.9,5.5,1,baixa,analista,iPhone 14,6.7,6.2,1,370,264.6,0,1,moderado,bom
+47,masculino,4.6,1.5,5.4,0,alta,engenheiro,Samsung Galaxy A54,6.4,5.5,2,236,434.1,0,1,moderado,ruim
+21,feminino,5.0,2.2,7.7,0,baixa,estudante,OnePlus 11,6.7,3.6,1,118,502.9,0,1,moderado,ruim
+30,feminino,6.3,2.2,5.3,0,moderada,medico,Samsung Galaxy A54,8.9,4.5,1,360,477.9,0,1,moderado,ruim
+22,feminino,4.1,3.7,5.0,0,moderada,estudante,iPhone 15 Pro,7.4,4.6,3,136,310.1,0,1,moderado,bom
+20,feminino,4.3,3.3,7.5,0,moderada,estudante,Realme 10 Pro,6.0,3.4,1,87,220.2,0,1,moderado,ruim
+36,masculino,7.4,2.5,6.5,0,baixa,advogado,Xiaomi Redmi Note 12,6.6,4.8,1,373,364.2,0,1,moderado,ruim
+17,feminino,11.0,2.8,4.7,1,baixa,autonomo,Motorola Edge 40,7.5,7.6,2,130,564.5,1,0,alto,bom
+46,masculino,5.0,1.3,?,0,baixa,medico,Huawei P60,6.2,8.0,1,396,493.2,0,1,moderado,bom
+51,feminino,5.3,?,5.8,0,moderada,gerente,OnePlus 11,8.8,6.8,3,266,433.9,1,1,moderado,ruim
+28,masculino,7.8,1.6,5.5,1,moderada,desempregado,iPhone 15 Pro,5.2,4.4,4,109,460.7,0,0,alto,ruim
+25,feminino,3.1,0.6,7.0,0,moderada,professor,Realme 10 Pro,4.2,1.7,0,27,281.8,0,1,baixo,bom
+26,masculino,30.0,5.3,5.4,1,baixa,desempregado,Motorola Edge 40,7.9,8.1,4,403,497.0,0,0,alto,ruim
+24,masculino,4.8,2.1,6.1,0,baixa,estudante,Realme 10 Pro,6.4,6.7,2,80,485.9,1,1,moderado,bom
+25,masculino,7.4,4.0,7.8,1,moderada,estudante,Google Pixel 7,5.3,6.7,1,77,376.9,1,1,moderado,bom
+31,feminino,7.8,9.1,6.8,1,baixa,estudante,Google Pixel 7,6.6,7.9,5,270,300.0,0,0,alto,ruim
+20,masculino,13.1,7.8,5.7,1,baixa,autonomo,Samsung Galaxy A54,8.7,9.0,2,286,492.0,1,1,alto,bom
+34,feminino,7.5,5.3,6.7,1,baixa,estudante,Samsung Galaxy S23,6.6,7.7,4,389,353.3,0,1,alto,ruim
+25,masculino,10.5,?,5.0,1,baixa,estudante,Huawei P60,7.1,5.2,2,255,493.0,1,0,alto,ruim
+35,feminino,4.4,2.5,6.3,0,alta,engenheiro,iPhone 15 Pro,6.9,7.7,2,181,319.8,0,1,moderado,ruim
+29,masculino,6.8,3.7,4.1,0,alta,autonomo,Samsung Galaxy A54,6.2,5.4,4,84,526.3,1,0,alto,ruim
+20,masculino,8.4,3.3,4.9,1,moderada,desempregado,OnePlus 11,5.3,6.3,2,259,586.7,1,1,alto,ruim
+29,feminino,8.7,7.8,6.6,1,alta,desempregado,iPhone 15 Pro,8.5,7.5,3,288,482.2,1,0,alto,ruim
+19,feminino,5.3,3.6,5.3,0,moderada,estudante,Huawei P60,6.6,3.7,-1,89,223.4,0,1,moderado,bom
+43,feminino,7.0,2.1,5.2,0,alta,analista,Huawei P60,6.9,4.6,1,229,378.7,1,0,moderado,bom
+22,masculino,4.4,3.4,6.9,0,baixa,estudante,iPhone 13,5.8,5.7,1,198,330.3,0,1,moderado,bom
+34,feminino,5.0,0.5,8.8,0,?,enfermeiro,Google Pixel 7,3.0,3.6,0,33,270.1,0,0,baixo,ruim
+17,feminino,7.1,2.4,5.5,0,moderada,desempregado,iPhone 15 Pro,5.8,4.8,2,190,427.2,1,0,alto,ruim
+21,feminino,5.2,4.6,5.5,0,moderada,estudante,Samsung Galaxy S23,7.3,3.7,1,144,505.5,0,1,moderado,bom
+17,feminino,8.0,5.9,4.6,1,baixa,influencer,Samsung Galaxy A54,7.0,6.9,3,703,358.1,1,1,alto,ruim
+26,feminino,12.3,7.8,6.9,1,baixa,autonomo,iPhone 14,5.7,7.2,4,227,678.4,0,0,alto,ruim
+19,feminino,7.7,7.6,4.7,1,alta,influencer,iPhone 13,8.8,5.6,3,532,330.7,1,0,alto,ruim
+28,masculino,10.5,4.1,5.0,1,?,freelancer,iPhone 15 Pro,8.4,7.9,3,287,394.8,1,1,alto,ruim
+38,masculino,3.4,1.4,7.1,0,alta,autonomo,Xiaomi Redmi Note 12,5.0,1.7,1,69,167.4,0,1,baixo,bom
+19,masculino,9.0,8.7,5.3,1,moderada,influencer,Motorola Edge 40,8.5,5.2,4,283,466.3,1,0,alto,ruim
+39,feminino,12.1,?,4.4,1,moderada,autonomo,iPhone 15 Pro,9.6,9.0,2,274,567.7,1,0,alto,ruim
+27,feminino,8.0,7.4,5.7,1,baixa,influencer,Realme 10 Pro,6.0,6.9,2,619,432.2,0,0,alto,ruim
+25,feminino,9.6,6.6,6.7,1,moderada,autonomo,Asus ROG Phone 7,6.3,6.7,5,345,336.5,1,1,alto,ruim
+26,feminino,7.2,8.6,5.1,1,baixa,estudante,Motorola Edge 40,6.1,7.0,2,?,426.4,0,0,alto,ruim
+20,feminino,5.6,2.5,5.5,0,moderada,estudante,Asus ROG Phone 7,7.2,5.4,2,146,232.6,1,1,moderado,ruim
+24,feminino,10.4,7.2,4.0,1,moderada,autonomo,iPhone 15 Pro,9.7,5.1,2,460,483.4,0,0,alto,ruim
+33,masculino,11.3,6.4,6.6,1,baixa,estudante,iPhone 13,5.0,8.6,2,325,466.5,1,0,alto,ruim
+22,masculino,8.7,3.9,7.4,1,moderada,estudante,iPhone 15 Pro,8.1,6.1,3,195,357.4,1,1,moderado,bom
+22,feminino,6.5,2.9,6.3,0,baixa,estudante,Xiaomi Redmi Note 12,6.6,3.0,2,189,524.8,0,0,moderado,ruim
+26,feminino,9.9,2.9,4.1,1,?,autonomo,Realme 10 Pro,7.2,4.3,3,186,618.4,0,0,alto,ruim
+21,masculino,7.6,?,5.0,1,moderada,influencer,iPhone 15 Pro,6.0,6.2,2,306,302.1,1,1,alto,ruim
+34,masculino,7.4,1.6,6.6,0,alta,medico,Realme 10 Pro,8.0,5.0,3,150,216.1,0,1,moderado,bom
+21,feminino,11.0,2.6,4.4,1,baixa,desempregado,Samsung Galaxy S23,5.8,7.3,4,236,442.2,0,0,alto,ruim
+32,masculino,4.2,0.6,7.8,0,alta,enfermeiro,Google Pixel 7,4.0,2.9,0,34,382.6,0,0,baixo,bom
+17,feminino,9.3,3.9,?,1,baixa,autonomo,iPhone 14,5.8,7.5,3,191,455.3,0,0,alto,ruim
+28,feminino,9.5,7.1,6.4,1,moderada,autonomo,Samsung Galaxy S23,5.5,6.1,2,758,564.3,0,0,alto,ruim
+30,feminino,3.1,1.1,8.0,0,alta,autonomo,Motorola Edge 40,3.5,1.8,1,65,319.9,0,0,baixo,bom
+25,masculino,7.5,17.0,5.5,1,baixa,desempregado,Motorola Edge 40,7.7,4.4,1,245,509.8,0,1,alto,ruim
+30,masculino,11.9,9.4,6.3,1,baixa,autonomo,iPhone 15 Pro,5.2,8.2,3,537,411.8,0,0,alto,ruim
+51,feminino,5.7,2.7,5.7,0,moderada,advogado,Realme 10 Pro,6.2,8.0,3,141,361.3,1,1,moderado,ruim
+34,feminino,5.2,3.0,6.6,0,baixa,gerente,iPhone 14,6.9,5.2,1,149,434.9,1,1,moderado,ruim
+130,masculino,4.0,2.6,6.1,1,alta,engenheiro,iPhone 13,8.6,4.7,3,103,353.5,0,0,moderado,bom
+36,masculino,9.2,5.1,4.9,1,baixa,desempregado,OnePlus 11,8.4,7.8,2,306,631.9,0,0,alto,ruim
+18,feminino,8.0,?,5.6,0,moderada,estudante,Huawei P60,8.9,5.9,3,179,246.3,0,1,moderado,bom
+41,masculino,5.4,2.0,6.5,0,baixa,gerente,Asus ROG Phone 7,7.6,7.0,3,308,477.2,0,1,moderado,bom
+53,masculino,7.1,2.4,6.1,0,baixa,engenheiro,iPhone 15 Pro,7.7,7.7,2,257,427.8,0,1,moderado,ruim
+24,feminino,10.1,7.1,4.6,1,baixa,autonomo,Samsung Galaxy S23,8.4,7.9,3,252,380.9,1,1,alto,ruim
+20,masculino,9.4,6.2,6.4,1,baixa,autonomo,Realme 10 Pro,7.9,6.0,3,369,332.4,0,0,alto,ruim
+24,feminino,11.3,1.3,4.0,1,baixa,desempregado,Google Pixel 7,4.2,5.3,2,127,749.1,1,0,alto,ruim
+19,masculino,11.0,1.6,5.8,1,baixa,estudante,Realme 10 Pro,5.4,5.7,4,159,717.6,0,0,alto,ruim
+49,masculino,5.0,1.1,5.8,0,baixa,medico,OnePlus 11,7.1,6.5,1,324,363.7,1,1,moderado,bom
+22,feminino,11.8,3.1,5.9,1,baixa,autonomo,Huawei P60,6.1,6.5,3,226,604.4,1,1,alto,ruim
+37,feminino,4.9,1.3,6.5,0,alta,advogado,Realme 10 Pro,8.3,7.9,2,202,394.5,1,0,moderado,ruim
+36,masculino,6.0,1.8,5.9,0,?,engenheiro,iPhone 13,6.3,7.1,3,154,329.1,1,1,moderado,bom
+28,feminino,8.3,5.2,5.0,1,?,desempregado,Xiaomi Redmi Note 12,6.2,6.1,4,315,337.1,1,0,alto,ruim
+24,masculino,6.4,2.2,5.5,0,baixa,estudante,Asus ROG Phone 7,8.9,5.9,3,166,436.7,1,1,moderado,bom
+32,masculino,11.2,5.3,5.6,1,moderada,influencer,Motorola Edge 40,6.3,6.7,4,303,410.7,0,0,alto,bom
+43,masculino,3.0,1.2,7.1,0,alta,autonomo,iPhone 15 Pro,2.1,2.9,0,39,301.8,0,1,baixo,bom
+22,masculino,10.7,3.3,?,1,baixa,autonomo,Asus ROG Phone 7,7.1,4.2,3,106,414.6,1,0,alto,ruim
+25,feminino,4.5,0.8,?,1,alta,enfermeiro,Samsung Galaxy A54,4.0,2.1,1,73,169.4,0,0,baixo,bom
+31,masculino,9.7,6.1,6.5,0,?,desempregado,OnePlus 11,7.1,5.7,2,296,345.3,1,0,alto,ruim
+16,masculino,7.3,?,4.2,1,?,autonomo,iPhone 13,6.4,4.3,3,285,630.3,1,0,alto,ruim
+21,masculino,7.2,4.7,6.9,1,moderada,estudante,iPhone 15 Pro,6.9,5.7,2,101,450.2,1,1,moderado,ruim
+25,masculino,12.0,2.4,4.5,1,moderada,estudante,OnePlus 11,7.8,5.4,4,264,723.4,1,1,alto,ruim
+31,feminino,3.5,0.9,?,0,alta,enfermeiro,iPhone 14,4.3,3.8,1,41,381.5,0,1,baixo,bom
+40,masculino,2.6,1.3,?,0,alta,autonomo,iPhone 15 Pro,2.9,3.9,1,63,393.0,0,0,baixo,bom
+51,feminino,7.7,1.4,5.7,0,moderada,gerente,iPhone 14,8.2,4.9,1,189,342.3,1,1,moderado,ruim
+21,masculino,13.3,4.6,5.8,0,baixa,autonomo,Google Pixel 7,7.6,7.0,2,392,564.5,1,0,alto,bom
+33,masculino,4.7,16.4,8.2,0,moderada,aposentado,Huawei P60,3.4,3.3,1,71,399.0,0,1,baixo,ruim
+26,masculino,7.3,1.5,4.1,1,baixa,estudante,Samsung Galaxy S23,5.9,7.4,2,122,451.6,1,0,alto,ruim
+34,feminino,4.7,?,5.7,0,baixa,medico,OnePlus 11,8.7,5.8,3,395,215.1,1,1,moderado,ruim
+19,feminino,4.1,4.3,5.4,0,baixa,estudante,Samsung Galaxy A54,6.8,4.2,2,75,443.8,0,0,moderado,bom
+19,masculino,11.5,3.4,5.0,0,baixa,autonomo,OnePlus 11,4.2,6.2,4,?,588.9,1,0,alto,bom
+39,masculino,4.5,0.9,7.9,0,?,professor,OnePlus 11,2.2,1.3,1,48,313.9,0,1,baixo,bom
+40,masculino,25.0,1.2,?,0,moderada,professor,Samsung Galaxy S23,2.1,2.6,1,64,163.9,0,0,baixo,bom
+28,feminino,6.3,1.4,4.1,1,baixa,desempregado,Realme 10 Pro,6.8,6.1,4,214,548.4,0,1,alto,ruim
+20,masculino,10.7,2.5,5.6,1,baixa,estudante,iPhone 13,4.9,6.0,2,81,659.3,0,0,alto,bom
+23,masculino,6.8,2.7,5.7,1,moderada,desempregado,Motorola Edge 40,4.4,5.8,2,270,497.6,0,0,alto,ruim
+37,masculino,7.8,1.9,5.6,0,baixa,advogado,Samsung Galaxy A54,6.3,7.3,1,324,214.4,0,1,moderado,ruim
+30,feminino,11.7,7.6,5.9,0,baixa,estudante,Xiaomi Redmi Note 12,7.4,5.4,4,238,538.5,0,1,alto,ruim
+16,masculino,8.8,1.7,4.3,0,baixa,estudante,Samsung Galaxy S23,6.5,6.2,1,143,495.5,1,0,alto,ruim
+19,feminino,6.0,4.9,7.9,0,moderada,estudante,Realme 10 Pro,7.9,4.4,1,120,236.6,0,1,moderado,bom
+32,feminino,6.2,3.0,6.6,0,moderada,engenheiro,iPhone 15 Pro,7.3,4.5,3,344,495.2,0,0,moderado,ruim
+18,masculino,6.7,3.4,6.2,0,baixa,estudante,Xiaomi Redmi Note 12,6.9,4.3,2,184,427.7,0,1,moderado,ruim
+24,masculino,9.9,4.7,?,1,?,autonomo,Huawei P60,6.5,8.7,5,397,342.5,0,0,alto,ruim
+27,masculino,4.5,1.1,8.3,0,alta,autonomo,iPhone 14,3.9,1.2,0,?,263.6,0,0,baixo,bom
+28,feminino,2.4,1.4,8.1,0,alta,autonomo,Huawei P60,4.6,3.5,1,24,133.7,1,1,baixo,bom
+-5,feminino,12.7,8.1,6.5,0,baixa,estudante,Samsung Galaxy A54,7.6,6.4,5,358,411.7,0,1,alto,ruim
+47,masculino,7.9,3.0,5.1,0,baixa,gerente,Xiaomi Redmi Note 12,7.6,5.0,3,325,376.5,1,1,moderado,ruim
+44,masculino,7.3,1.9,6.6,0,moderada,advogado,Samsung Galaxy A54,8.8,5.4,3,394,398.5,0,1,moderado,bom
+26,feminino,10.1,6.7,4.3,1,baixa,freelancer,Realme 10 Pro,9.9,7.0,5,407,500.4,0,1,alto,bom
+-5,feminino,7.4,3.0,5.8,0,moderada,estudante,Realme 10 Pro,5.2,6.4,2,107,418.6,1,0,moderado,bom
+19,feminino,4.9,2.2,6.8,0,moderada,estudante,Huawei P60,5.4,3.8,3,135,313.6,0,0,moderado,ruim
+20,masculino,7.6,4.1,7.7,0,moderada,estudante,iPhone 15 Pro,5.5,5.7,3,194,451.3,1,1,moderado,bom
+24,masculino,10.7,3.1,5.7,1,moderada,desempregado,Realme 10 Pro,5.1,6.6,2,?,413.4,0,1,alto,ruim
+32,feminino,5.5,2.8,0.8,1,baixa,advogado,Motorola Edge 40,8.7,4.6,2,169,247.0,0,1,moderado,bom
+36,feminino,5.0,3.0,5.6,0,moderada,engenheiro,OnePlus 11,8.7,5.1,3,131,397.0,0,1,moderado,bom
+21,masculino,7.4,2.9,5.6,1,?,estudante,Asus ROG Phone 7,7.3,5.1,2,75,369.4,0,0,moderado,bom
+26,feminino,8.4,5.8,4.4,1,baixa,desempregado,Huawei P60,7.5,6.1,2,473,656.4,1,0,alto,bom
+32,masculino,6.4,3.0,7.0,0,moderada,advogado,iPhone 14,6.3,7.1,3,214,389.2,0,1,moderado,ruim
+26,masculino,11.6,1.5,5.7,1,baixa,autonomo,Asus ROG Phone 7,5.1,4.0,1,156,526.3,0,0,alto,ruim
+22,feminino,11.4,3.8,?,0,baixa,autonomo,iPhone 15 Pro,7.6,5.1,4,299,484.6,1,0,alto,bom
+38,masculino,12.8,4.5,0.0,0,baixa,desempregado,Xiaomi Redmi Note 12,6.4,6.1,5,282,335.4,1,0,alto,ruim
+21,feminino,8.9,4.5,5.8,1,moderada,estudante,Huawei P60,8.1,4.0,-2,127,225.3,0,0,moderado,ruim
+35,masculino,8.8,6.3,4.9,1,baixa,influencer,iPhone 13,7.4,6.6,5,434,586.0,1,0,alto,ruim
+44,feminino,6.2,1.6,5.9,0,moderada,analista,Asus ROG Phone 7,8.9,4.8,3,299,303.0,1,1,moderado,bom
+200,feminino,3.6,0.7,8.5,0,alta,professor,Xiaomi Redmi Note 12,2.8,3.9,0,30,205.5,0,1,baixo,bom
+36,masculino,2.1,1.0,7.1,0,alta,enfermeiro,OnePlus 11,3.5,2.3,0,37,360.7,0,1,baixo,bom
+39,masculino,2.2,0.7,7.5,0,alta,enfermeiro,OnePlus 11,4.8,2.9,1,47,144.8,0,1,baixo,bom
+31,feminino,3.4,1.4,8.9,0,alta,autonomo,iPhone 15 Pro,5.0,3.0,0,55,132.8,0,1,baixo,bom
+20,masculino,11.7,8.4,5.8,0,baixa,autonomo,iPhone 13,6.0,9.0,3,639,573.9,1,1,alto,ruim
+39,feminino,3.1,2.8,6.9,0,moderada,analista,Samsung Galaxy A54,8.6,5.6,3,295,422.6,1,1,moderado,bom
+37,masculino,8.8,4.5,6.5,1,baixa,influencer,Motorola Edge 40,6.3,7.7,4,269,386.2,0,1,alto,ruim
+44,feminino,4.8,?,8.1,0,baixa,autonomo,iPhone 13,4.9,2.6,1,35,310.4,1,1,baixo,bom
+26,masculino,13.4,6.9,6.5,0,baixa,autonomo,iPhone 15 Pro,7.9,5.6,4,210,649.0,0,1,alto,bom
+30,feminino,11.8,5.0,6.4,0,alta,freelancer,iPhone 13,7.8,8.0,2,341,518.5,1,0,alto,bom
+24,feminino,4.5,2.8,7.6,1,baixa,estudante,iPhone 14,7.5,4.4,3,92,455.7,1,0,moderado,bom
+22,masculino,11.6,4.5,5.3,1,moderada,freelancer,iPhone 13,6.4,7.0,5,1000,505.4,0,0,alto,ruim
+36,masculino,10.8,6.0,6.5,0,baixa,autonomo,Samsung Galaxy A54,8.3,6.0,5,?,433.6,1,1,alto,bom
+20,feminino,8.8,1.9,4.1,1,baixa,autonomo,Huawei P60,5.2,6.7,2,?,473.8,1,0,alto,ruim
+17,masculino,7.4,2.5,4.6,1,moderada,estudante,iPhone 14,6.3,5.9,4,230,473.4,0,0,alto,ruim
+30,feminino,3.6,0.7,7.2,0,alta,autonomo,Asus ROG Phone 7,3.0,1.1,-2,74,248.1,0,1,baixo,bom
+30,feminino,8.7,5.5,6.5,0,baixa,desempregado,OnePlus 11,6.5,7.4,4,220,652.1,1,0,alto,ruim
+24,masculino,6.7,3.5,5.1,1,alta,estudante,Google Pixel 7,7.1,4.7,3,187,650.0,0,0,alto,ruim
+16,feminino,7.1,1.1,5.5,1,baixa,autonomo,iPhone 13,4.6,5.2,1,161,501.9,1,0,alto,bom
+17,feminino,7.3,8.1,4.2,0,baixa,autonomo,Xiaomi Redmi Note 12,8.5,7.3,3,633,503.1,1,1,alto,ruim
+34,feminino,4.8,1.2,5.5,1,moderada,analista,Realme 10 Pro,8.8,6.8,1,173,452.7,1,1,moderado,bom
+21,masculino,7.3,2.3,7.8,1,?,estudante,iPhone 14,8.2,5.7,3,156,297.4,0,1,moderado,ruim
+35,masculino,2.0,?,7.7,0,moderada,autonomo,Huawei P60,2.1,1.5,1,24,206.5,0,1,baixo,ruim
+23,masculino,11.8,1.5,4.7,1,baixa,desempregado,OnePlus 11,4.4,6.2,-1,246,642.7,1,0,alto,ruim
+26,feminino,2.5,0.8,7.0,0,alta,autonomo,Huawei P60,4.0,3.5,0,27,355.5,0,0,baixo,bom
+23,masculino,6.6,1.9,5.3,1,moderada,autonomo,Samsung Galaxy S23,7.3,7.8,4,900,642.7,0,0,alto,bom
+25,feminino,9.3,7.2,4.4,1,baixa,autonomo,iPhone 14,6.2,8.0,5,630,697.1,0,0,alto,ruim
+25,masculino,6.1,3.1,4.0,1,baixa,autonomo,iPhone 13,5.5,5.5,3,257,544.7,0,0,alto,ruim
+25,masculino,12.3,6.3,5.9,1,baixa,autonomo,Samsung Galaxy S23,6.3,6.7,3,?,426.2,0,0,alto,ruim
+29,masculino,7.6,2.3,4.2,1,baixa,autonomo,Motorola Edge 40,7.6,6.7,1,227,654.2,0,0,alto,bom
+28,masculino,9.6,8.0,4.5,1,baixa,freelancer,iPhone 15 Pro,7.8,6.8,5,471,424.5,1,0,alto,bom
+23,masculino,7.5,3.4,5.3,1,baixa,autonomo,Huawei P60,6.5,4.8,3,229,610.3,0,0,alto,bom
+17,feminino,8.0,8.5,5.9,0,moderada,desempregado,Xiaomi Redmi Note 12,9.0,6.1,5,456,559.5,0,0,alto,ruim
+28,masculino,13.1,5.8,6.8,1,?,desempregado,iPhone 14,9.5,5.2,5,265,425.8,1,0,alto,ruim
+22,masculino,9.4,6.0,5.3,1,moderada,autonomo,Samsung Galaxy A54,9.0,6.9,2,357,474.4,1,0,alto,ruim
+21,feminino,11.3,9.7,6.6,1,moderada,influencer,Motorola Edge 40,7.2,5.5,2,517,407.5,1,0,alto,ruim
+22,feminino,8.8,?,5.2,0,baixa,estudante,OnePlus 11,5.4,3.1,2,144,225.0,0,1,moderado,bom
+44,masculino,4.6,1.4,8.0,0,moderada,autonomo,Google Pixel 7,2.8,3.8,1,33,234.7,0,1,baixo,bom
+40,masculino,3.6,1.2,8.5,0,alta,aposentado,Xiaomi Redmi Note 12,4.9,1.3,0,49,351.0,0,1,baixo,ruim
+39,feminino,3.2,0.9,8.8,0,alta,enfermeiro,Samsung Galaxy S23,4.9,2.8,1,70,110.8,0,1,baixo,bom
+30,feminino,4.8,0.7,8.7,1,alta,professor,iPhone 14,2.6,2.6,1,57,241.5,0,0,baixo,bom
+47,masculino,3.4,1.7,6.7,0,moderada,medico,iPhone 15 Pro,6.2,5.0,3,366,338.0,0,1,moderado,bom
+44,feminino,3.5,0.6,8.1,0,alta,aposentado,Google Pixel 7,3.0,2.6,1,20,328.3,0,1,baixo,ruim
+24,masculino,5.2,3.0,5.6,0,moderada,estudante,Motorola Edge 40,8.3,3.5,2,107,499.0,0,1,moderado,ruim
+45,masculino,7.1,1.1,5.8,0,baixa,engenheiro,Samsung Galaxy S23,8.7,7.5,2,231,301.9,0,1,moderado,ruim
+32,feminino,4.1,?,?,0,moderada,aposentado,Huawei P60,4.3,3.7,0,53,383.3,0,1,baixo,bom
+34,masculino,18.0,2.6,5.4,1,baixa,medico,Samsung Galaxy A54,8.0,6.1,2,277,326.8,1,1,moderado,bom
+23,masculino,18.0,4.9,5.9,1,moderada,estudante,iPhone 14,7.8,4.6,1,153,409.9,0,1,moderado,bom
+36,feminino,3.3,1.3,8.6,0,moderada,autonomo,Google Pixel 7,3.2,3.7,1,?,357.7,0,0,baixo,bom
+32,feminino,28.0,?,5.6,1,moderada,analista,Realme 10 Pro,7.3,5.4,3,368,427.0,1,1,moderado,ruim
+17,masculino,10.8,1.7,4.1,1,moderada,estudante,Realme 10 Pro,7.5,4.2,2,?,700.9,1,0,alto,ruim
+23,feminino,11.1,6.0,6.4,0,baixa,autonomo,iPhone 15 Pro,8.0,7.6,3,685,417.9,1,0,alto,ruim
+36,feminino,7.1,2.9,6.1,0,?,advogado,Asus ROG Phone 7,6.7,6.8,3,357,324.5,1,1,moderado,ruim
+35,masculino,3.4,2.7,?,0,moderada,medico,Samsung Galaxy S23,8.6,5.9,1,103,325.0,1,1,moderado,bom
+19,masculino,6.2,2.4,7.3,0,baixa,estudante,OnePlus 11,6.9,7.0,3,70,597.1,0,1,moderado,bom
+20,feminino,4.0,3.3,7.5,0,?,estudante,Huawei P60,5.3,5.4,2,69,589.0,0,1,moderado,ruim
+44,feminino,4.4,2.0,6.6,1,baixa,engenheiro,Realme 10 Pro,6.5,4.1,1,276,241.5,0,1,moderado,bom
+35,feminino,6.9,2.9,6.7,0,baixa,analista,Samsung Galaxy A54,6.4,4.4,3,177,276.4,0,1,moderado,ruim
+17,feminino,10.8,?,5.6,0,moderada,estudante,iPhone 15 Pro,8.3,7.3,2,259,321.8,0,0,alto,ruim
+21,masculino,13.6,6.4,6.4,0,moderada,desempregado,Samsung Galaxy A54,6.9,8.2,15,224,570.4,1,0,alto,ruim
+30,masculino,13.4,4.6,5.1,1,baixa,influencer,Motorola Edge 40,9.7,5.7,2,179,663.8,1,0,alto,ruim
+44,feminino,4.1,2.9,6.8,0,moderada,medico,Google Pixel 7,8.2,8.0,2,211,267.8,0,1,moderado,ruim
+19,masculino,5.6,2.9,5.5,1,moderada,estudante,iPhone 13,6.3,4.3,1,126,272.3,0,0,moderado,ruim
+16,feminino,10.2,9.3,4.0,0,baixa,estudante,Xiaomi Redmi Note 12,7.0,6.8,5,758,453.4,1,0,alto,ruim
+16,feminino,9.5,6.1,4.6,1,moderada,influencer,Huawei P60,5.2,5.9,5,710,493.2,1,0,alto,ruim
+24,feminino,9.0,5.5,6.7,1,baixa,influencer,Google Pixel 7,6.8,7.3,4,163,461.2,0,0,alto,ruim
+36,feminino,5.1,1.3,6.9,0,moderada,medico,iPhone 14,7.5,5.2,3,360,401.9,1,1,moderado,bom
+31,feminino,7.4,1.0,6.5,0,baixa,engenheiro,Huawei P60,8.7,6.6,2,187,312.5,0,1,moderado,bom
+43,masculino,3.3,1.2,8.8,0,alta,autonomo,Motorola Edge 40,2.2,2.7,1,70,187.8,0,1,baixo,bom
+18,masculino,10.1,8.6,5.1,1,baixa,estudante,OnePlus 11,5.2,8.2,3,712,620.9,1,0,alto,ruim
+28,masculino,8.7,3.1,5.6,1,baixa,desempregado,Samsung Galaxy S23,5.5,6.8,2,156,734.4,1,0,alto,ruim
+28,feminino,6.0,?,5.0,1,alta,engenheiro,Xiaomi Redmi Note 12,8.7,4.9,3,192,457.6,0,1,moderado,ruim
+23,masculino,4.0,2.0,7.4,1,baixa,estudante,Huawei P60,8.5,6.7,3,?,545.2,1,1,moderado,ruim
+16,masculino,7.5,8.4,6.4,0,baixa,influencer,Realme 10 Pro,8.3,6.2,3,363,485.4,0,0,alto,ruim
+28,masculino,8.1,5.1,5.3,1,?,freelancer,Xiaomi Redmi Note 12,7.6,6.0,5,332,305.4,1,0,alto,ruim
+41,feminino,4.8,1.4,8.1,1,alta,aposentado,Huawei P60,2.9,1.1,1,51,184.9,1,0,baixo,bom
+30,feminino,7.3,6.5,5.0,0,moderada,influencer,Samsung Galaxy S23,8.9,6.3,5,797,376.5,1,0,alto,ruim
+35,masculino,4.2,0.7,7.2,0,alta,professor,Realme 10 Pro,2.9,2.0,0,62,134.0,0,1,baixo,bom
+22,feminino,7.8,2.2,6.4,1,baixa,estudante,iPhone 14,6.8,5.7,1,128,495.4,0,1,moderado,bom
+18,masculino,7.8,8.9,4.8,0,moderada,desempregado,Samsung Galaxy A54,7.0,5.3,3,593,395.7,1,0,alto,ruim
+25,feminino,11.4,6.4,6.2,1,moderada,estudante,OnePlus 11,6.8,7.4,4,279,602.5,1,0,alto,ruim
+20,masculino,8.1,1.3,5.9,1,baixa,autonomo,Samsung Galaxy S23,7.9,4.5,2,186,591.2,1,1,alto,ruim
+19,masculino,6.7,3.3,5.5,1,moderada,estudante,iPhone 13,7.1,7.7,4,161,454.2,0,1,alto,bom
+23,feminino,10.4,5.5,6.4,1,baixa,influencer,Realme 10 Pro,9.4,8.1,2,187,340.5,1,0,alto,bom
+21,feminino,8.8,2.8,7.6,0,baixa,estudante,Realme 10 Pro,6.7,3.0,2,66,417.6,0,1,moderado,bom
+24,masculino,6.2,4.5,7.7,1,baixa,estudante,Google Pixel 7,8.3,3.2,2,134,267.6,0,1,moderado,bom
+53,masculino,5.0,1.5,7.0,0,alta,gerente,Google Pixel 7,7.0,7.3,2,198,423.5,1,1,moderado,ruim
+40,masculino,3.6,?,5.3,1,moderada,gerente,iPhone 13,6.3,7.0,-2,271,216.1,1,1,moderado,ruim
+41,masculino,4.4,2.9,6.7,0,moderada,gerente,Samsung Galaxy S23,7.5,4.6,3,147,346.2,0,1,moderado,ruim
+39,feminino,7.4,1.1,6.8,0,moderada,advogado,Samsung Galaxy S23,6.1,7.9,2,190,308.8,1,0,moderado,ruim
+38,feminino,4.8,0.7,8.1,0,moderada,enfermeiro,Xiaomi Redmi Note 12,2.6,1.6,1,31,272.0,0,0,baixo,bom
+30,feminino,9.4,4.2,4.8,0,?,influencer,Motorola Edge 40,7.6,7.8,3,329,407.1,1,0,alto,ruim
+43,feminino,2.1,1.0,8.1,0,moderada,enfermeiro,Samsung Galaxy S23,4.8,1.6,1,62,236.2,0,0,baixo,bom
+21,masculino,9.5,1.6,5.8,1,baixa,desempregado,iPhone 15 Pro,5.2,5.1,1,159,500.4,0,0,alto,ruim
+35,masculino,11.5,6.5,4.8,0,baixa,desempregado,OnePlus 11,8.6,5.1,5,?,411.3,1,1,alto,bom
+29,feminino,7.4,8.5,5.7,1,baixa,desempregado,Google Pixel 7,7.7,8.9,2,558,469.7,1,0,alto,ruim
+29,masculino,9.8,4.7,4.3,0,baixa,autonomo,Motorola Edge 40,7.6,6.7,3,278,340.2,1,0,alto,ruim
+30,feminino,2.6,0.7,7.0,0,alta,professor,Asus ROG Phone 7,2.8,1.4,1,24,140.3,0,1,baixo,bom
+36,feminino,4.0,0.6,8.1,0,alta,aposentado,Google Pixel 7,4.6,4.0,1,44,167.6,0,1,baixo,bom
+200,feminino,4.9,1.8,6.7,0,baixa,gerente,Samsung Galaxy S23,8.5,4.2,3,?,319.5,0,1,moderado,ruim
+28,masculino,8.1,1.4,4.9,1,baixa,estudante,iPhone 14,5.7,7.8,3,257,443.7,1,0,alto,ruim
+42,feminino,2.2,1.4,7.4,0,alta,enfermeiro,iPhone 13,2.4,1.4,1,76,224.5,0,0,baixo,bom
+41,masculino,2.1,0.6,8.2,0,alta,aposentado,Samsung Galaxy S23,4.4,1.2,0,50,268.1,0,1,baixo,bom
+43,masculino,6.2,1.5,5.2,1,moderada,engenheiro,Samsung Galaxy S23,8.5,6.8,3,205,321.4,0,1,moderado,ruim
+36,masculino,2.5,0.5,8.6,0,moderada,autonomo,OnePlus 11,4.8,2.2,1,47,289.2,0,1,baixo,bom
+42,masculino,6.7,2.3,?,0,baixa,advogado,Google Pixel 7,8.8,4.2,3,111,310.2,0,1,moderado,bom
+28,feminino,5.9,2.4,6.8,0,baixa,medico,Samsung Galaxy A54,6.0,4.5,2,302,325.2,0,1,moderado,ruim
+28,masculino,4.2,1.4,7.2,0,alta,autonomo,iPhone 15 Pro,5.0,1.8,1,?,274.1,0,1,baixo,bom
+28,masculino,3.0,0.7,7.6,0,moderada,enfermeiro,Samsung Galaxy A54,2.7,2.3,0,64,391.4,0,0,baixo,bom
+18,masculino,10.1,8.3,6.7,1,moderada,influencer,Google Pixel 7,7.0,7.4,3,790,566.9,1,0,alto,ruim
+21,feminino,10.7,5.3,5.3,1,baixa,influencer,Samsung Galaxy S23,8.1,5.8,3,357,328.9,1,1,alto,ruim
+35,masculino,12.3,6.7,5.4,1,baixa,influencer,iPhone 13,7.2,6.3,4,161,590.6,0,0,alto,ruim
+32,feminino,7.9,17.0,6.0,0,baixa,medico,Samsung Galaxy S23,6.2,7.8,2,284,344.7,1,1,moderado,bom
+21,feminino,12.0,5.4,6.6,1,?,influencer,Samsung Galaxy S23,7.7,6.7,4,?,410.9,0,0,alto,ruim
+22,feminino,7.2,7.8,6.3,1,moderada,estudante,OnePlus 11,5.9,6.8,2,772,389.3,0,0,alto,bom
+42,masculino,3.0,2.5,6.8,1,moderada,engenheiro,Samsung Galaxy S23,8.8,6.2,2,142,200.2,0,1,moderado,bom
+38,feminino,12.0,4.3,?,1,moderada,influencer,Xiaomi Redmi Note 12,7.9,7.4,2,409,421.1,0,1,alto,ruim
+130,feminino,2.7,1.2,7.5,0,moderada,aposentado,Realme 10 Pro,3.7,3.8,1,78,258.4,0,0,baixo,bom
+37,feminino,7.3,1.6,6.8,0,baixa,medico,OnePlus 11,8.2,5.7,3,289,286.5,0,1,moderado,ruim
+21,masculino,9.0,3.0,4.8,1,alta,autonomo,Xiaomi Redmi Note 12,7.7,4.8,1,268,672.4,1,0,alto,bom
+29,masculino,9.9,5.5,7.0,1,baixa,freelancer,Xiaomi Redmi Note 12,7.0,6.7,4,318,483.8,1,0,alto,ruim
+28,feminino,10.8,9.8,5.6,0,baixa,influencer,Huawei P60,8.8,6.3,4,257,380.2,1,1,alto,bom
+28,feminino,3.8,1.2,7.8,0,alta,enfermeiro,Xiaomi Redmi Note 12,2.4,3.0,1,33,359.9,1,0,baixo,bom
+32,feminino,13.0,?,4.4,1,baixa,influencer,Asus ROG Phone 7,9.5,6.6,3,155,529.9,1,0,alto,ruim
+33,masculino,2.9,1.1,8.6,0,alta,professor,iPhone 14,4.6,1.0,0,33,216.6,0,0,baixo,bom
+30,masculino,11.0,?,5.2,0,?,desempregado,Samsung Galaxy S23,8.0,8.2,3,321,639.5,0,0,alto,ruim
+42,masculino,20.0,0.8,8.6,1,baixa,aposentado,Asus ROG Phone 7,4.4,1.3,1,60,319.7,0,0,baixo,bom
+40,feminino,3.4,1.1,7.2,0,baixa,enfermeiro,Motorola Edge 40,2.9,1.9,1,26,288.6,0,1,baixo,bom
+31,masculino,2.1,0.9,7.2,0,baixa,autonomo,Realme 10 Pro,3.1,2.9,1,29,214.4,0,0,baixo,bom
+29,masculino,11.7,1.2,5.2,1,moderada,desempregado,iPhone 14,7.5,8.0,1,247,634.6,1,0,alto,bom
+31,feminino,6.4,2.2,6.9,0,moderada,medico,Xiaomi Redmi Note 12,8.7,6.1,1,376,427.2,0,1,moderado,ruim
+18,masculino,7.3,2.3,5.6,1,baixa,autonomo,Realme 10 Pro,7.4,6.6,-3,1200,525.9,1,0,alto,ruim
+24,masculino,7.6,8.6,6.1,1,moderada,estudante,OnePlus 11,6.5,8.0,3,?,315.9,0,0,alto,ruim
+24,masculino,12.6,5.9,5.9,1,moderada,desempregado,OnePlus 11,9.4,8.2,3,230,462.4,0,1,alto,ruim
+24,feminino,7.2,2.7,5.3,0,moderada,estudante,iPhone 14,6.1,6.2,2,67,382.8,0,0,moderado,ruim
+30,masculino,25.0,7.4,6.1,1,baixa,estudante,Huawei P60,7.6,8.1,3,309,557.1,1,0,alto,ruim
+21,feminino,8.7,2.5,5.0,1,baixa,estudante,Motorola Edge 40,7.3,4.7,2,162,474.4,0,1,moderado,bom
+27,feminino,9.9,6.6,4.4,1,?,desempregado,Motorola Edge 40,7.6,8.8,4,?,653.7,0,0,alto,ruim
+44,masculino,4.7,0.6,7.4,0,alta,autonomo,iPhone 15 Pro,5.0,2.2,0,68,281.3,0,1,baixo,bom
+30,feminino,8.8,9.9,6.0,1,baixa,influencer,Asus ROG Phone 7,6.0,5.7,4,373,551.6,1,0,alto,ruim
+25,feminino,4.8,1.4,7.5,0,moderada,professor,iPhone 13,4.4,1.4,0,56,307.3,0,0,baixo,bom
+23,feminino,10.3,8.5,?,1,moderada,influencer,Asus ROG Phone 7,6.0,7.7,2,?,342.2,0,0,alto,bom
+17,masculino,9.4,2.4,5.0,1,moderada,autonomo,OnePlus 11,4.1,7.2,1,297,647.7,0,1,alto,ruim
+28,masculino,12.9,6.0,4.4,1,moderada,desempregado,Asus ROG Phone 7,5.0,5.9,3,794,509.4,1,0,alto,ruim
+25,feminino,4.1,0.6,7.5,0,moderada,professor,Realme 10 Pro,3.7,3.1,0,75,133.3,0,0,baixo,bom
+29,masculino,11.2,3.4,?,0,moderada,estudante,Motorola Edge 40,4.4,6.8,4,239,771.5,0,1,alto,ruim
+22,feminino,10.5,9.9,6.3,1,baixa,desempregado,iPhone 13,7.1,6.3,2,465,401.3,0,1,alto,ruim
+16,masculino,10.0,3.2,4.9,1,baixa,estudante,iPhone 13,4.2,5.6,4,256,686.5,1,0,alto,bom
+17,feminino,6.8,2.0,4.4,1,baixa,desempregado,Huawei P60,5.3,6.4,3,185,726.3,1,0,alto,ruim
+31,masculino,6.2,1.3,5.1,1,baixa,analista,Realme 10 Pro,8.9,7.5,1,276,454.2,0,1,moderado,ruim
+30,masculino,12.2,?,4.6,0,moderada,freelancer,Realme 10 Pro,8.8,5.8,2,317,505.5,1,1,alto,ruim
+26,masculino,10.5,3.4,5.2,0,baixa,autonomo,iPhone 14,7.8,7.7,2,?,468.7,1,1,alto,ruim
+20,masculino,10.3,1.6,5.3,1,baixa,desempregado,Samsung Galaxy A54,5.7,4.5,3,167,513.8,1,0,alto,ruim
+26,feminino,7.7,5.1,4.0,0,baixa,autonomo,Huawei P60,8.5,5.4,3,777,633.7,1,0,alto,ruim
+31,masculino,3.4,1.0,9.0,0,alta,aposentado,Samsung Galaxy A54,3.9,3.1,1,78,358.9,0,1,baixo,bom
+23,masculino,6.7,3.4,5.9,1,baixa,estudante,OnePlus 11,6.7,5.1,1,?,541.0,1,1,moderado,bom
+22,feminino,7.5,8.0,4.3,0,moderada,estudante,Google Pixel 7,7.3,6.4,3,684,446.8,1,0,alto,ruim
+22,masculino,12.1,7.1,4.2,1,baixa,desempregado,Xiaomi Redmi Note 12,9.0,8.1,5,773,655.1,1,1,alto,ruim
+27,masculino,11.8,7.6,5.3,0,baixa,freelancer,iPhone 13,6.0,8.5,2,399,318.5,1,0,alto,ruim
+18,masculino,10.4,3.0,4.1,1,baixa,estudante,iPhone 15 Pro,4.7,6.8,3,268,447.0,0,0,alto,ruim
+23,feminino,8.7,2.4,6.9,1,alta,estudante,Realme 10 Pro,8.0,5.7,3,134,455.5,0,1,moderado,ruim
+22,masculino,4.5,2.1,5.2,1,alta,estudante,Google Pixel 7,7.8,3.3,2,151,582.5,1,1,moderado,bom
+38,masculino,12.6,4.4,5.5,1,baixa,influencer,Realme 10 Pro,9.6,8.8,-2,250,433.2,1,1,alto,ruim
+37,masculino,11.7,7.7,?,0,moderada,autonomo,iPhone 13,7.4,8.9,5,459,480.8,0,1,alto,ruim
+21,masculino,7.6,2.1,4.3,1,moderada,estudante,Samsung Galaxy A54,4.4,6.0,3,196,556.7,0,0,alto,ruim
+32,feminino,3.7,?,7.4,0,baixa,enfermeiro,Huawei P60,4.0,3.5,0,71,278.4,0,0,baixo,bom
+32,feminino,20.0,9.8,?,1,baixa,autonomo,Huawei P60,7.3,6.4,3,354,565.7,1,0,alto,ruim
+31,feminino,7.5,7.4,4.9,1,alta,estudante,Samsung Galaxy A54,5.7,5.8,12,799,407.2,1,0,alto,ruim
