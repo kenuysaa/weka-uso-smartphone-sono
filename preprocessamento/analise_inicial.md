@@ -1,35 +1,33 @@
-# Analise Inicial
+# Análise Exploratória Inicial - Qualidade do Sono e Smartphone
 
-## Estrutura geral
-| Item | Valor |
-|---|---|
-| Instâncias | 500 |
-| Atributos | 17 + 1 classe |
+## 1. Visão Geral do Dataset (Raw Data)
+| Item                  | Valor                                        |
+| --------------------- | -------------------------------------------- |
+| Número de Instâncias  | 500                                          |
+| Número de Atributos   | 18                                           |
+| Classe                | qualidade_sono                               |
+| Tarefa                | Classificação Binária                        |
+| Equilíbrio de Classes | ruim (291 instâncias) e bom (209 instâncias) |
 
-- Tarefa: Classificação de Qualidade de Sono (Classe `qualidade_sono`)
+## 2. Estatísticas e Problemas Identificados
+Análise técnica das variáveis conforme observado no estado bruto do dataset
+| **Atributo**           | **Tipo** | **Problema Identificado** | **Evidência/Estatística**                                                  |
+| ---------------------- | -------- | ------------------------- | -------------------------------------------------------------------------- |
+| `idade`                | Numérico | Outliers/Ruído            | Presença de valores impossíveis: **-10** e **200** anos.                   |
+| `horas_uso_diario`     | Numérico | Outliers                  | Valor máximo de **30 horas**, o que é fisicamente impossível em um dia.    |
+| `tempo_redes_sociais`  | Numérico | Valores Faltantes         | 35 instâncias com valor `?`.                                               |
+| `horas_sono`           | Numérico | Valores Faltantes/Ruído   | 29 faltantes e valores negativos (**-1.4h**).                              |
+| `despertares_noturnos` | Numérico | Inconsistência            | Valor mínimo de **-3**, inconsistente para uma contagem.                   |
+| `notificacoes_diarias` | Numérico | Valores Faltantes         | 40 instâncias com valor `?`.                                               |
+| `modelo_dispositivo`   | Nominal  | Irrelevante/Faltante      | Atributo com 100% de dados faltantes ou sem nexo causal direto com o sono. |
 
-## Estatisticas dos Atributos
-|Atributo|Tipo|Valores Faltantes(%)|Observação|
-|--------|----|--------------------|----------|
-|tempo_redes_sociais|numerico|7.2%||
-|horas_sono|numerico|7.6%||
-|atividade_fisica|binario|5.8%||
-|notificacoes_diarias|numerico|6.8%||
+## 3. Identificação de Elementos Intencionais
+O dataset contém os seguintes elementos para tratamento:
+- **Atributo Irrelevante:** `modelo_dispositivo` e `consumo_energia` foram identificados como variáveis que não contribuem para a predição da qualidade do sono.
+- **Valores Faltantes:** Concentrados em atributos críticos como `tempo_redes_sociais` e `notificacoes_diarias`.
+- **Outliers:** Inseridos propositalmente em `idade` (200) e `horas_uso_diario` (30) para testar o rigor do pré-processamento.
 
-## Perfis comportamentais
-Os 6 perfis influenciam **simultaneamente** múltiplos atributos com distribuições probabilísticas distintas:
-
-| Perfil | Peso | Características dominantes |
-|---|---|---|
-| Saudável | 18% | Baixo uso, sono regular, ativo fisicamente |
-| Estudante universitário | 18% | Uso moderado-alto, estresse elevado, sono irregular |
-| Heavy user | 15% | Uso extremo (>9h), muitas notificações, alta insônia |
-| Gamer noturno | 14% | Uso madrugada >80%, luminosidade alta, sono curto |
-| Corporativo | 18% | Estresse alto, muitas notificações, uso produtivo |
-| Compulsivo de redes | 17% | RS >5h/dia, notificações >250, sono degradado |
-
-## Hipóteses e Problemas Identificados
-- **Ruídos** (`<8%`): idades inválidas (−5, 150), `horas_sono` negativas, `notificacoes_diarias` negativas, `horas_uso_diario` > 28h
-- **Outliers plausíveis** (`~4%`): `horas_uso=20`, `horas_sono=0`, `tempo_redes_sociais=18`, `notificacoes=1200`, `despertares=15`
-- Inconsistências: 
-- Hipótese: 
+## 4. Hipóteses para o Projeto
+1. **H1:** Existe uma correlação forte e positiva entre o `uso_madrugada` (binário) e a classe `qualidade_sono = ruim`. 
+2. **H2:** O aumento nas `notificacoes_diarias` atua como um fator de ruído que impacta negativamente o tempo de sono profundo.
+3. **H3:** A limpeza dos outliers de `idade` e `horas_uso_diario` reduzirá significativamente o erro médio dos algoritmos de classificação.
