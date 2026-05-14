@@ -11,6 +11,7 @@ Além disso, a análise exploratória inicial auxilia na formulação de hipóte
 | Número de Atributos   | 18                    |
 | Classe-alvo           | `qualidade_sono`      |
 | Tarefa de Aprendizado | Classificação Binária |
+
 **Distribuição das Classes**
 
 | bom | ruim |
