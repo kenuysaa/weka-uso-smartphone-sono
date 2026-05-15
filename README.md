@@ -11,3 +11,4 @@ Investigar padrões entre uso excessivo de smartphones e qualidade do sono utili
 - Clara Leticia de Oliveira Vieira
 - João Vitor Oliveira Simões
 - Chyntia Freitas Prestes
+- Manoele Braga
