@@ -4,7 +4,7 @@
 **Objetivo:** Verificar se o conjunto de dados foi carregado corretamente no Weka e se sua estrutura está adequada para a tarefa de classificação.  
 **Resultado:** O dataset foi carregado corretamente no Weka, sem erros de importação. A base possui 500 instâncias e 18 atributos, atendendo aos requisitos mínimos do trabalho. A classe-alvo definida foi `qualidade_sono`, com duas categorias: `bom` e `ruim`.
 
-![ver-estrutura-dataset](imagens/ver-estrutura-dataset.png)
+![ver-estrutura-dataset](../imagens/ver-estrutura-dataset.png)
 
 | Verificação           | Resultado observado          | Situação |
 | --------------------- | ---------------------------- | -------- |
