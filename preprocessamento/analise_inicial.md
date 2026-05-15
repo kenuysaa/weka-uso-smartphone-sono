@@ -3,7 +3,8 @@
 ## Etapa 1: Verificação da estrutura do dataset
 **Objetivo:** Verificar se o conjunto de dados foi carregado corretamente no Weka e se sua estrutura está adequada para a tarefa de classificação.  
 **Resultado:** O dataset foi carregado corretamente no Weka, sem erros de importação. A base possui 500 instâncias e 18 atributos, atendendo aos requisitos mínimos do trabalho. A classe-alvo definida foi `qualidade_sono`, com duas categorias: `bom` e `ruim`.
-![[Pasted image 20260514205602.png]]
+
+![ver-estrutura-dataset](imagens/ver-estrutura-dataset.png)
 
 | Verificação           | Resultado observado          | Situação |
 | --------------------- | ---------------------------- | -------- |
@@ -20,13 +21,15 @@
 **Objetivo:** Verificar a distribuição da variável que será prevista pelo modelo de classificação.
 
 **Resultado:** A classe-alvo do dataset é `qualidade_sono`, composta por duas categorias: `bom` e `ruim`. A distribuição encontrada foi de 291 registros classificados como `ruim` e 209 registros classificados como `bom`.
-![[Pasted image 20260514210003.png]]
+
+![atributos-classe](imagens/atributos-classe.png)
 
 | Classe | Quantidade | Interpretação                                                                                  |
 | ------ | ---------- | ---------------------------------------------------------------------------------------------- |
 | ruim   | 291        | Maior quantidade de registros, indicando predominância de usuários com pior qualidade do sono. |
 | bom    | 209        | Menor quantidade, mas ainda com representatividade suficiente.                                 |
-![[Pasted image 20260514210033.png]]
+
+![](imagens/graph-class.png)
 
 ---
 ## Etapa 3: Analisar estatísticas básicas dos atributos numéricos
@@ -49,16 +52,16 @@
 
 **Evidencias Weka**
 Figura - Atributo idade
-![[Figura - Atributo idade.png]]
+![](imagens/Figura-Atributo-idade.png)
 
 Figura - Atributo Horas Sono
-![[Pasted image 20260514210315.png]]
+![](imagens/atri-horas-sono.png)
 
 Figura - Atributo Notificações Diarias
-![[Pasted image 20260514210433.png]]
+![](imagens/atri-nots-diarias.png)
 
 Figura - Atributo Qualidade Sono
-![[Pasted image 20260514210441.png]]
+![](imagens/atri-quali-sono.png)
 
 ---
 ## Etapa 4: Identificar valores faltantes
@@ -67,28 +70,28 @@ Figura - Atributo Qualidade Sono
 
 **Resultado:** Foram encontrados valores faltantes em atributos relevantes para o problema de classificação da qualidade do sono.
 
-| Atributo | Quantidade de valores faltantes | Possível impacto |
-|---|---|---|
-| `tempo_redes_sociais` | 35 | Pode afetar a análise do uso do smartphone em redes sociais. |
-| `horas_sono` | 29 | Impacta diretamente a análise da qualidade do sono. |
-| `notificacoes_diarias` | 40 | Pode influenciar a relação entre interrupções digitais e sono. |
-| `atividade_fisica` | 30 | Pode afetar a análise de hábitos saudáveis relacionados ao sono. |
+| Atributo               | Quantidade de valores faltantes | Possível impacto                                                 |
+| ---------------------- | ------------------------------- | ---------------------------------------------------------------- |
+| `tempo_redes_sociais`  | 35                              | Pode afetar a análise do uso do smartphone em redes sociais.     |
+| `horas_sono`           | 29                              | Impacta diretamente a análise da qualidade do sono.              |
+| `notificacoes_diarias` | 40                              | Pode influenciar a relação entre interrupções digitais e sono.   |
+| `atividade_fisica`     | 30                              | Pode afetar a análise de hábitos saudáveis relacionados ao sono. |
 
 **Análise:** Os valores faltantes aparecem em atributos importantes para o domínio do problema. O atributo `horas_sono`, por exemplo, tem relação direta com a qualidade do sono, enquanto `tempo_redes_sociais` e `notificacoes_diarias` representam aspectos do uso do smartphone. Dessa forma, os valores faltantes não devem ser ignorados na etapa seguinte, pois aparecem em atributos relevantes para o problema.
 
 Como decisão futura para o pré-processamento, poderemos utilizar o filtro `ReplaceMissingValues` do Weka. Para atributos numéricos, como `horas_sono`, `tempo_redes_sociais` e `notificacoes_diarias`, poderá ser considerada a substituição por média ou mediana. Para o atributo nominal `atividade_fisica`, poderá ser considerada a substituição pela moda.
 
 Figura - Atributo Tempo em Redes Sociais
-![[Pasted image 20260514210831.png]]
+![](atri-tempo-redes.png)
 
 Figura - Atributo Horas de Sono
-![[Pasted image 20260514210845.png]]
+![](imagens/atri-horas-sono2.png)
 
 Figura - Atributo Notificação Diarias
-![[Pasted image 20260514210852.png]]
+![](imagens/atri-nots-diarias2.png)
 
 Figura - Atributo Atividade Física
-![[Pasted image 20260514210900.png]]
+![](imagens/atri-atv-fisica.png)
 
 ---
 
@@ -98,13 +101,13 @@ Figura - Atributo Atividade Física
 
 **Inconsistências encontradas:**
 
-| Atributo | Problema observado | Interpretação |
-|---|---|---|
-| `idade` | Valores como -10, -5, -1, 130, 150 e 200 | Idades negativas ou muito elevadas são inconsistentes para o domínio. |
-| `horas_sono` | Valores como -1,4 e 0 | Quantidade negativa de sono é impossível e zero horas pode indicar caso extremo. |
-| `despertares_noturnos` | Valores como -3 | Não é possível ter quantidade negativa de despertares. |
-| `horas_uso_diario` | Valores como 25, 28 e 30 | Representam outliers, pois ultrapassam ou se aproximam do limite diário real. |
-| `notificacoes_diarias` | Valores como 650, 792, 1000 e 1200 | Indicam comportamento extremo de uso do smartphone. |
+| Atributo               | Problema observado                       | Interpretação                                                                    |
+| ---------------------- | ---------------------------------------- | -------------------------------------------------------------------------------- |
+| `idade`                | Valores como -10, -5, -1, 130, 150 e 200 | Idades negativas ou muito elevadas são inconsistentes para o domínio.            |
+| `horas_sono`           | Valores como -1,4 e 0                    | Quantidade negativa de sono é impossível e zero horas pode indicar caso extremo. |
+| `despertares_noturnos` | Valores como -3                          | Não é possível ter quantidade negativa de despertares.                           |
+| `horas_uso_diario`     | Valores como 25, 28 e 30                 | Representam outliers, pois ultrapassam ou se aproximam do limite diário real.    |
+| `notificacoes_diarias` | Valores como 650, 792, 1000 e 1200       | Indicam comportamento extremo de uso do smartphone.                              |
 
 Nesta análise, foram diferenciados dois tipos de problemas. As **inconsistências** correspondem a valores impossíveis no domínio real, como idade negativa, horas de sono negativas e quantidade negativa de despertares noturnos. Já os **outliers** correspondem a valores extremos que podem representar comportamento atípico, mas ainda possível, como muitas horas de uso diário do smartphone ou um número muito elevado de notificações.
 
@@ -113,7 +116,7 @@ Nesta análise, foram diferenciados dois tipos de problemas. As **inconsistênci
 Esses achados indicam que, no pré-processamento, a equipe deverá tratar os valores impossíveis de forma mais rígida, por meio de correção, substituição ou remoção. Já os outliers deverão ser avaliados com mais cuidado, pois alguns podem representar comportamentos relevantes para o problema de uso excessivo de smartphone.
 
 Figura - Atributo Despertar Noturno
-![[Pasted image 20260514211033.png]]
+![](imagens/atri-desp-notur.png)
 
 ---
 
@@ -123,29 +126,29 @@ Figura - Atributo Despertar Noturno
 
 **Relações observadas:** Foram analisadas relações entre atributos ligados ao uso do smartphone, hábitos de sono e a classe-alvo. Os principais atributos observados foram `horas_uso_diario`, `uso_madrugada`, `horas_sono`, `nivel_estresse` e `notificacoes_diarias`.
 
-| Relação analisada | Interpretação esperada |
-|---|---|
-| `horas_uso_diario` × `qualidade_sono` | Usuários com maior tempo de uso diário tendem a apresentar maior chance de sono ruim. |
-| `uso_madrugada` × `qualidade_sono` | O uso do smartphone durante a madrugada pode estar associado à pior qualidade do sono. |
-| `horas_sono` × `qualidade_sono` | Menor quantidade de horas de sono tende a se relacionar com a classe `ruim`. |
-| `nivel_estresse` × `qualidade_sono` | Níveis mais altos de estresse podem aparecer com maior frequência em usuários com sono ruim. |
-| `notificacoes_diarias` × `qualidade_sono` | Muitas notificações podem indicar maior interrupção e maior exposição ao smartphone. |
+| Relação analisada                         | Interpretação esperada                                                                       |
+| ----------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `horas_uso_diario` × `qualidade_sono`     | Usuários com maior tempo de uso diário tendem a apresentar maior chance de sono ruim.        |
+| `uso_madrugada` × `qualidade_sono`        | O uso do smartphone durante a madrugada pode estar associado à pior qualidade do sono.       |
+| `horas_sono` × `qualidade_sono`           | Menor quantidade de horas de sono tende a se relacionar com a classe `ruim`.                 |
+| `nivel_estresse` × `qualidade_sono`       | Níveis mais altos de estresse podem aparecer com maior frequência em usuários com sono ruim. |
+| `notificacoes_diarias` × `qualidade_sono` | Muitas notificações podem indicar maior interrupção e maior exposição ao smartphone.         |
 
 **Análise:** As relações observadas são coerentes com o domínio do problema. A qualidade do sono não parece depender de apenas um atributo isolado, mas de uma combinação de fatores, como tempo de uso do smartphone, uso durante a madrugada, quantidade de horas dormidas, notificações recebidas e nível de estresse.
 
 Nas visualizações realizadas no Weka, a classe `qualidade_sono` foi utilizada como atributo de cor — pontos **azuis** representam registros classificados como `bom`, enquanto pontos **vermelhos** representam registros classificados como `ruim`. Essa configuração permitiu observar visualmente como os atributos de entrada se distribuem em relação à classe-alvo.
 
 Figura - Relação entre horas_sono e horas_uso_diario, com cor por qualidade_sono
-![[Pasted image 20260514211214.png]]
+![](imagens/rel-horas-sono-uso.png)
 
 Figura - Relação entre horas_sono e uso_madrugada, com cor por qualidade_sono
-![[Pasted image 20260514211242.png]]
+![](imagens/rel-horas-sono-uso-madru.png)
 
 Figura - Relação entre horas_sono e nivel_estresse, com cor por qualidade_sono
-![[Pasted image 20260514211306.png]]
+![](rel-horas-sono-estress.png)
 
 Figura - Relação entre horas_sono e notificacoes_diarias, com cor por qualidade_sono
-![[Pasted image 20260514211336.png]]
+![](imagens/rel-horas-sono-nots.png)
 
 ---
 ## Conclusão do Teste Piloto
