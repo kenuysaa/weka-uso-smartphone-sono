@@ -22,14 +22,14 @@
 
 **Resultado:** A classe-alvo do dataset é `qualidade_sono`, composta por duas categorias: `bom` e `ruim`. A distribuição encontrada foi de 291 registros classificados como `ruim` e 209 registros classificados como `bom`.
 
-![atributos-classe](imagens/atributos-classe.png)
+![atributos-classe](../imagens/atributos-classe.png)
 
 | Classe | Quantidade | Interpretação                                                                                  |
 | ------ | ---------- | ---------------------------------------------------------------------------------------------- |
 | ruim   | 291        | Maior quantidade de registros, indicando predominância de usuários com pior qualidade do sono. |
 | bom    | 209        | Menor quantidade, mas ainda com representatividade suficiente.                                 |
 
-![](imagens/graph-class.png)
+![](../imagens/graph-class.png)
 
 ---
 ## Etapa 3: Analisar estatísticas básicas dos atributos numéricos
@@ -52,16 +52,16 @@
 
 **Evidencias Weka**
 Figura - Atributo idade
-![](imagens/Figura-Atributo-idade.png)
+![](../imagens/Figura-Atributo-idade.png)
 
 Figura - Atributo Horas Sono
-![](imagens/atri-horas-sono.png)
+![](../imagens/atri-horas-sono.png)
 
 Figura - Atributo Notificações Diarias
-![](imagens/atri-nots-diarias.png)
+![](../imagens/atri-nots-diarias.png)
 
 Figura - Atributo Qualidade Sono
-![](imagens/atri-quali-sono.png)
+![](../imagens/atri-quali-sono.png)
 
 ---
 ## Etapa 4: Identificar valores faltantes
@@ -82,16 +82,16 @@ Figura - Atributo Qualidade Sono
 Como decisão futura para o pré-processamento, poderemos utilizar o filtro `ReplaceMissingValues` do Weka. Para atributos numéricos, como `horas_sono`, `tempo_redes_sociais` e `notificacoes_diarias`, poderá ser considerada a substituição por média ou mediana. Para o atributo nominal `atividade_fisica`, poderá ser considerada a substituição pela moda.
 
 Figura - Atributo Tempo em Redes Sociais
-![](atri-tempo-redes.png)
+![](../imagens/atri-tempo-redes.png)
 
 Figura - Atributo Horas de Sono
-![](imagens/atri-horas-sono2.png)
+![](../imagens/atri-horas-sono2.png)
 
 Figura - Atributo Notificação Diarias
-![](imagens/atri-nots-diarias2.png)
+![](../imagens/atri-nots-diarias2.png)
 
 Figura - Atributo Atividade Física
-![](imagens/atri-atv-fisica.png)
+![](../imagens/atri-atv-fisica.png)
 
 ---
 
@@ -116,7 +116,7 @@ Nesta análise, foram diferenciados dois tipos de problemas. As **inconsistênci
 Esses achados indicam que, no pré-processamento, a equipe deverá tratar os valores impossíveis de forma mais rígida, por meio de correção, substituição ou remoção. Já os outliers deverão ser avaliados com mais cuidado, pois alguns podem representar comportamentos relevantes para o problema de uso excessivo de smartphone.
 
 Figura - Atributo Despertar Noturno
-![](imagens/atri-desp-notur.png)
+![](../imagens/atri-desp-notur.png)
 
 ---
 
@@ -139,16 +139,16 @@ Figura - Atributo Despertar Noturno
 Nas visualizações realizadas no Weka, a classe `qualidade_sono` foi utilizada como atributo de cor — pontos **azuis** representam registros classificados como `bom`, enquanto pontos **vermelhos** representam registros classificados como `ruim`. Essa configuração permitiu observar visualmente como os atributos de entrada se distribuem em relação à classe-alvo.
 
 Figura - Relação entre horas_sono e horas_uso_diario, com cor por qualidade_sono
-![](imagens/rel-horas-sono-uso.png)
+![](../imagens/rel-horas-sono-uso.png)
 
 Figura - Relação entre horas_sono e uso_madrugada, com cor por qualidade_sono
-![](imagens/rel-horas-sono-uso-madru.png)
+![](../imagens/rel-horas-sono-uso-madru.png)
 
 Figura - Relação entre horas_sono e nivel_estresse, com cor por qualidade_sono
-![](rel-horas-sono-estress.png)
+![](../rel-horas-sono-estress.png)
 
 Figura - Relação entre horas_sono e notificacoes_diarias, com cor por qualidade_sono
-![](imagens/rel-horas-sono-nots.png)
+![](../imagens/rel-horas-sono-nots.png)
 
 ---
 ## Conclusão do Teste Piloto
