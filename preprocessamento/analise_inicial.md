@@ -1,149 +1,159 @@
-# Analise Inicial
-Esta análise inicial tem como objetivo compreender a estrutura geral do dataset sintético desenvolvido para o projeto de classificação da qualidade do sono com base no uso excessivo de smartphones.  
-A etapa foi realizada antes de qualquer procedimento de pré-processamento, conforme exigido no enunciado do trabalho, permitindo identificar padrões, inconsistências, valores faltantes, ruídos e possíveis outliers presentes na base de dados.  
-Além disso, a análise exploratória inicial auxilia na formulação de hipóteses sobre o comportamento dos atributos e orienta as decisões posteriores de limpeza e transformação dos dados no Weka.
- 
- **Visão Geral do Dataset**
+# Verificação e Análise Exploratória do Dataset
+---
+## Etapa 1: Verificação da estrutura do dataset
+**Objetivo:** Verificar se o conjunto de dados foi carregado corretamente no Weka e se sua estrutura está adequada para a tarefa de classificação.  
+**Resultado:** O dataset foi carregado corretamente no Weka, sem erros de importação. A base possui 500 instâncias e 18 atributos, atendendo aos requisitos mínimos do trabalho. A classe-alvo definida foi `qualidade_sono`, com duas categorias: `bom` e `ruim`.
+![[Pasted image 20260514205602.png]]
 
-| Item                  | Valor                 |
-| --------------------- | --------------------- |
-| Número de Instâncias  | 500                   |
-| Número de Atributos   | 18                    |
-| Classe-alvo           | `qualidade_sono`      |
-| Tarefa de Aprendizado | Classificação Binária |
+| Verificação           | Resultado observado          | Situação |
+| --------------------- | ---------------------------- | -------- |
+| Carregamento no Weka  | O arquivo abriu corretamente | Atendido |
+| Número de instâncias  | 500 registros                | Atendido |
+| Número de atributos   | 18 atributos                 | Atendido |
+| Classe-alvo           | `qualidade_sono`             | Atendido |
+| Tipo da classe        | Nominal                      | Atendido |
+| Tarefa de aprendizado | Classificação                | Atendido |
 
-**Distribuição das Classes**
+---
+## Etapa 2: Verificar os atributos e a classe-alvo
 
-| bom | ruim |
-| --- | ---- |
-| 209 | 291  |
+**Objetivo:** Verificar a distribuição da variável que será prevista pelo modelo de classificação.
 
-A distribuição das classes mostra um leve desbalanceamento em favor da classe `ruim`, indicando predominância de usuários com padrões associados à pior qualidade do sono.
+**Resultado:** A classe-alvo do dataset é `qualidade_sono`, composta por duas categorias: `bom` e `ruim`. A distribuição encontrada foi de 291 registros classificados como `ruim` e 209 registros classificados como `bom`.
+![[Pasted image 20260514210003.png]]
 
-Esse comportamento é coerente com a proposta do problema, considerando que o dataset foi construído para simular cenários de uso excessivo de smartphones.
+| Classe | Quantidade | Interpretação                                                                                  |
+| ------ | ---------- | ---------------------------------------------------------------------------------------------- |
+| ruim   | 291        | Maior quantidade de registros, indicando predominância de usuários com pior qualidade do sono. |
+| bom    | 209        | Menor quantidade, mas ainda com representatividade suficiente.                                 |
+![[Pasted image 20260514210033.png]]
+
+---
+## Etapa 3: Analisar estatísticas básicas dos atributos numéricos
+
+**Objetivo:** Observar o comportamento geral dos atributos numéricos, identificando faixas de valores, dispersão e possíveis inconsistências.
+
+| Atributo                | Mínimo | Máximo | Média aproximada | Observação                                                          |
+| ----------------------- | ------ | ------ | ---------------- | ------------------------------------------------------------------- |
+| `idade`                 | -10    | 200    | 29,68            | Possui valores inconsistentes, como idades negativas e muito altas. |
+| `horas_uso_diario`      | 2      | 30     | 7,71             | Possui valores muito altos, indicando possíveis outliers.           |
+| `tempo_redes_sociais`   | 0,5    | 17     | 3,73             | Possui valores faltantes e alguns valores elevados.                 |
+| `horas_sono`            | -1,4   | 9      | 6,09             | Possui valores impossíveis, como horas negativas.                   |
+| `nivel_estresse`        | 2      | 9,9    | 6,43             | Faixa plausível para escala de estresse.                            |
+| `consumo_energia`       | 1      | 9      | 5,42             | Valores dentro de uma escala controlada.                            |
+| `despertares_noturnos`  | -3     | 15     | 2,25             | Possui valores impossíveis, como quantidade negativa.               |
+| `notificacoes_diarias`  | 20     | 1200   | 239,37           | Possui valores muito altos, indicando outliers.                     |
+| `luminosidade_ambiente` | 110,8  | 771,5  | 416,48           | Variação plausível, mas com valores altos.                          |
+
+**Análise:** A análise estatística inicial mostrou que alguns atributos possuem comportamento coerente com o domínio, como `nivel_estresse`, `consumo_energia` e `luminosidade_ambiente`. No entanto, também foram encontrados valores inconsistentes ou extremos em atributos como `idade`, `horas_sono`, `despertares_noturnos`, `horas_uso_diario` e `notificacoes_diarias`.
+
+**Evidencias Weka**
+Figura - Atributo idade
+![[Figura - Atributo idade.png]]
+
+Figura - Atributo Horas Sono
+![[Pasted image 20260514210315.png]]
+
+Figura - Atributo Notificações Diarias
+![[Pasted image 20260514210433.png]]
+
+Figura - Atributo Qualidade Sono
+![[Pasted image 20260514210441.png]]
+
+---
+## Etapa 4: Identificar valores faltantes
+
+**Objetivo:** Identificar os atributos com valores ausentes e levantar hipóteses para o tratamento posterior no pré-processamento.
+
+**Resultado:** Foram encontrados valores faltantes em atributos relevantes para o problema de classificação da qualidade do sono.
+
+| Atributo | Quantidade de valores faltantes | Possível impacto |
+|---|---|---|
+| `tempo_redes_sociais` | 35 | Pode afetar a análise do uso do smartphone em redes sociais. |
+| `horas_sono` | 29 | Impacta diretamente a análise da qualidade do sono. |
+| `notificacoes_diarias` | 40 | Pode influenciar a relação entre interrupções digitais e sono. |
+| `atividade_fisica` | 30 | Pode afetar a análise de hábitos saudáveis relacionados ao sono. |
+
+**Análise:** Os valores faltantes aparecem em atributos importantes para o domínio do problema. O atributo `horas_sono`, por exemplo, tem relação direta com a qualidade do sono, enquanto `tempo_redes_sociais` e `notificacoes_diarias` representam aspectos do uso do smartphone. Dessa forma, os valores faltantes não devem ser ignorados na etapa seguinte, pois aparecem em atributos relevantes para o problema.
+
+Como decisão futura para o pré-processamento, poderemos utilizar o filtro `ReplaceMissingValues` do Weka. Para atributos numéricos, como `horas_sono`, `tempo_redes_sociais` e `notificacoes_diarias`, poderá ser considerada a substituição por média ou mediana. Para o atributo nominal `atividade_fisica`, poderá ser considerada a substituição pela moda.
+
+Figura - Atributo Tempo em Redes Sociais
+![[Pasted image 20260514210831.png]]
+
+Figura - Atributo Horas de Sono
+![[Pasted image 20260514210845.png]]
+
+Figura - Atributo Notificação Diarias
+![[Pasted image 20260514210852.png]]
+
+Figura - Atributo Atividade Física
+![[Pasted image 20260514210900.png]]
 
 ---
 
-# 1 Descrição dos Atributos
+## Etapa 5: Identificar inconsistências, ruídos e outliers
 
-| Atributo               | Tipo     | Descrição                                             |
-| ---------------------- | -------- | ----------------------------------------------------- |
-| idade                  | Numérico | Idade do usuário                                      |
-| genero                 | Nominal  | Gênero do usuário                                     |
-| horas_uso_diario       | Numérico | Tempo total de uso diário do smartphone               |
-| tempo_redes_sociais    | Numérico | Tempo diário gasto em redes sociais                   |
-| horas_sono             | Numérico | Quantidade média de horas dormidas                    |
-| uso_madrugada          | Nominal  | Indica uso do smartphone durante a madrugada          |
-| atividade_fisica       | Nominal  | Frequência de atividade física                        |
-| ocupacao               | Nominal  | Perfil ocupacional do usuário                         |
-| modelo_dispositivo     | Nominal  | Modelo do smartphone utilizado                        |
-| nivel_estresse         | Numérico | Escala de estresse do usuário                         |
-| consumo_energia        | Numérico | Indicador sintético de consumo energético do aparelho |
-| despertares_noturnos   | Numérico | Quantidade de despertares durante o sono              |
-| notificacoes_diarias   | Numérico | Quantidade diária de notificações recebidas           |
-| luminosidade_ambiente  | Numérico | Intensidade luminosa média do ambiente                |
-| insonia                | Nominal  | Indicação de sintomas de insônia                      |
-| uso_apps_produtividade | Numérico | Tempo gasto em aplicativos produtivos                 |
-| nivel_uso              | Nominal  | Perfil de intensidade de uso do smartphone            |
-| qualidade_sono         | Nominal  | Classe-alvo da classificação                          |
+**Objetivo:** Identificar valores fora do padrão, inconsistências e possíveis outliers presentes no dataset antes da etapa de pré-processamento.
 
----
-# 2 Estatísticas Gerais e Problemas Identificados
-A análise inicial permitiu identificar diversos comportamentos relevantes no dataset.
-## 2.1 Valores Faltantes
+**Inconsistências encontradas:**
 
-| Atributo             | Quantidade de Valores Faltantes |
-| -------------------- | ------------------------------- |
-| tempo_redes_sociais  | 35                              |
-| horas_sono           | 29                              |
-| notificacoes_diarias | 40                              |
-| atividade_fisica     | 30                              |
+| Atributo | Problema observado | Interpretação |
+|---|---|---|
+| `idade` | Valores como -10, -5, -1, 130, 150 e 200 | Idades negativas ou muito elevadas são inconsistentes para o domínio. |
+| `horas_sono` | Valores como -1,4 e 0 | Quantidade negativa de sono é impossível e zero horas pode indicar caso extremo. |
+| `despertares_noturnos` | Valores como -3 | Não é possível ter quantidade negativa de despertares. |
+| `horas_uso_diario` | Valores como 25, 28 e 30 | Representam outliers, pois ultrapassam ou se aproximam do limite diário real. |
+| `notificacoes_diarias` | Valores como 650, 792, 1000 e 1200 | Indicam comportamento extremo de uso do smartphone. |
 
-Os valores faltantes aparecem em atributos importantes para o problema, principalmente aqueles relacionados diretamente aos hábitos digitais e à qualidade do sono.
+Nesta análise, foram diferenciados dois tipos de problemas. As **inconsistências** correspondem a valores impossíveis no domínio real, como idade negativa, horas de sono negativas e quantidade negativa de despertares noturnos. Já os **outliers** correspondem a valores extremos que podem representar comportamento atípico, mas ainda possível, como muitas horas de uso diário do smartphone ou um número muito elevado de notificações.
 
-Esses valores ausentes foram inseridos propositalmente para simular:
+**Análise:** Foram identificados valores inconsistentes e outliers em alguns atributos. As inconsistências mais evidentes aparecem em `idade`, `horas_sono` e `despertares_noturnos`, pois possuem valores impossíveis dentro do domínio real. Já atributos como `horas_uso_diario` e `notificacoes_diarias` apresentam valores extremos, que podem representar tanto erros inseridos no dataset quanto usuários com comportamento muito fora do padrão.
 
-- falhas de sensores;
-- perda de coleta;
-- formulários incompletos.
+Esses achados indicam que, no pré-processamento, a equipe deverá tratar os valores impossíveis de forma mais rígida, por meio de correção, substituição ou remoção. Já os outliers deverão ser avaliados com mais cuidado, pois alguns podem representar comportamentos relevantes para o problema de uso excessivo de smartphone.
+
+Figura - Atributo Despertar Noturno
+![[Pasted image 20260514211033.png]]
 
 ---
-## 2.2 Inconsistências e Ruídos
 
-| Atributo             | Problema Encontrado                    |
-| -------------------- | -------------------------------------- |
-| idade                | Valores negativos e extremamente altos |
-| horas_sono           | Valores negativos                      |
-| despertares_noturnos | Quantidades negativas                  |
-| notificacoes_diarias | Valores negativos                      |
-| horas_uso_diario     | Valores acima de 24 horas              |
+## Etapa 6: Observar relações entre atributos
 
-Os ruídos foram inseridos de forma controlada para representar erros de entrada e inconsistências comuns em bases reais.
+**Objetivo:** Observar possíveis relações entre os atributos de entrada e a classe-alvo `qualidade_sono`.
 
-Exemplos encontrados:
-- `idade = -10`
-- `idade = 200`
-- `horas_sono = -1.4`
-- `despertares_noturnos = -3`
-- `horas_uso_diario = 30`
+**Relações observadas:** Foram analisadas relações entre atributos ligados ao uso do smartphone, hábitos de sono e a classe-alvo. Os principais atributos observados foram `horas_uso_diario`, `uso_madrugada`, `horas_sono`, `nivel_estresse` e `notificacoes_diarias`.
 
----
-## 2.3 Outliers
-Também foram identificados valores extremos considerados outliers.
+| Relação analisada | Interpretação esperada |
+|---|---|
+| `horas_uso_diario` × `qualidade_sono` | Usuários com maior tempo de uso diário tendem a apresentar maior chance de sono ruim. |
+| `uso_madrugada` × `qualidade_sono` | O uso do smartphone durante a madrugada pode estar associado à pior qualidade do sono. |
+| `horas_sono` × `qualidade_sono` | Menor quantidade de horas de sono tende a se relacionar com a classe `ruim`. |
+| `nivel_estresse` × `qualidade_sono` | Níveis mais altos de estresse podem aparecer com maior frequência em usuários com sono ruim. |
+| `notificacoes_diarias` × `qualidade_sono` | Muitas notificações podem indicar maior interrupção e maior exposição ao smartphone. |
 
-| Atributo             | Exemplos de Outliers |
-| -------------------- | -------------------- |
-| horas_uso_diario     | 25, 28, 30           |
-| notificacoes_diarias | 650, 792, 1000, 1200 |
-| tempo_redes_sociais  | 17 horas             |
-| horas_sono           | 0 horas              |
+**Análise:** As relações observadas são coerentes com o domínio do problema. A qualidade do sono não parece depender de apenas um atributo isolado, mas de uma combinação de fatores, como tempo de uso do smartphone, uso durante a madrugada, quantidade de horas dormidas, notificações recebidas e nível de estresse.
 
-Diferentemente das inconsistências, alguns desses valores podem representar comportamentos extremos, porém plausíveis, relacionados ao uso compulsivo de smartphones.
+Nas visualizações realizadas no Weka, a classe `qualidade_sono` foi utilizada como atributo de cor — pontos **azuis** representam registros classificados como `bom`, enquanto pontos **vermelhos** representam registros classificados como `ruim`. Essa configuração permitiu observar visualmente como os atributos de entrada se distribuem em relação à classe-alvo.
 
----
-# 3 Atributos Potencialmente Irrelevantes
-Durante a análise inicial, alguns atributos demonstraram baixa relação aparente com a variável-alvo.
+Figura - Relação entre horas_sono e horas_uso_diario, com cor por qualidade_sono
+![[Pasted image 20260514211214.png]]
 
-| Atributo           | Justificativa                                               |
-| ------------------ | ----------------------------------------------------------- |
-| modelo_dispositivo | Não possui relação causal direta com a qualidade do sono    |
-| consumo_energia    | Pode não contribuir significativamente para a classificação |
+Figura - Relação entre horas_sono e uso_madrugada, com cor por qualidade_sono
+![[Pasted image 20260514211242.png]]
 
-Esses atributos poderão ser posteriormente avaliados utilizando filtros de seleção de atributos no Weka.
+Figura - Relação entre horas_sono e nivel_estresse, com cor por qualidade_sono
+![[Pasted image 20260514211306.png]]
+
+Figura - Relação entre horas_sono e notificacoes_diarias, com cor por qualidade_sono
+![[Pasted image 20260514211336.png]]
 
 ---
-# 4 Relações Observadas Entre os Atributos
-A análise exploratória permitiu levantar algumas relações iniciais entre os atributos do dataset e a classe `qualidade_sono`.
+## Conclusão do Teste Piloto
 
-| Relação Observada                     | Interpretação Inicial                                    |
-| ------------------------------------- | -------------------------------------------------------- |
-| horas_uso_diario × qualidade_sono     | Maior uso diário tende a se relacionar com sono ruim     |
-| uso_madrugada × qualidade_sono        | Uso durante a madrugada pode prejudicar o sono           |
-| horas_sono × qualidade_sono           | Menor duração do sono tende a aumentar a classe ruim     |
-| nivel_estresse × qualidade_sono       | Estresse elevado pode impactar negativamente o sono      |
-| notificacoes_diarias × qualidade_sono | Muitas notificações podem aumentar interrupções noturnas |
+O teste piloto permitiu verificar que o dataset foi carregado corretamente no Weka e possui estrutura adequada para a tarefa de classificação. A base contém 500 instâncias, 18 atributos e a classe-alvo `qualidade_sono`, composta pelas categorias `bom` e `ruim`.
 
-Os resultados indicam que a qualidade do sono depende de múltiplos fatores comportamentais e não apenas de um único atributo isolado.
+A análise exploratória inicial mostrou que o dataset possui atributos relevantes para o problema, como tempo de uso diário do smartphone, uso durante a madrugada, horas de sono, nível de estresse, notificações diárias e despertares noturnos. Também foram identificados valores faltantes, inconsistências e outliers, principalmente nos atributos `idade`, `horas_sono`, `despertares_noturnos`, `horas_uso_diario` e `notificacoes_diarias`.
 
----
-# 5 Hipóteses do Projeto
-Com base na análise inicial, foram formuladas as seguintes hipóteses:
+Com base nesses achados, conclui-se que o pré-processamento será necessário, mas deverá ser guiado pelas evidências observadas. As principais ações futuras serão o tratamento de valores faltantes, a correção ou remoção de valores impossíveis, a análise dos outliers e a possível avaliação de atributos irrelevantes, como `modelo_dispositivo`, que pode não contribuir diretamente para a classificação da qualidade do sono.
 
-| cod | Descrição                                                                                                                    |
-| --- | ---------------------------------------------------------------------------------------------------------------------------- |
-| **H1**  | Usuários com maior tempo de uso diário do smartphone possuem maior probabilidade de apresentar `qualidade_sono = ruim`.      |
-| **H2**  | O uso frequente do smartphone durante a madrugada está associado à pior qualidade do sono.                                   |
-| **H3**  | Altos níveis de notificações diárias e estresse tendem a impactar negativamente o sono.                                      |
-| **H4**  | A remoção ou tratamento adequado de inconsistências e outliers poderá melhorar o desempenho dos algoritmos de classificação. |
-# 6 Conclusão
-A análise exploratória inicial mostrou que o dataset possui estrutura adequada para a tarefa de classificação proposta no projeto.
-Além disso, foram identificados:
-- valores faltantes;
-- inconsistências;
-- ruídos;
-- outliers;
-- atributos potencialmente irrelevantes.
-
-Esses elementos foram inseridos propositalmente durante a geração do dataset para permitir análises mais realistas e enriquecer o processo de pré-processamento no Weka.
-
-Os resultados desta etapa servirão como base para as próximas fases do projeto, incluindo limpeza dos dados, transformação, visualização e treinamento dos modelos de aprendizado de máquina.
+Portanto, o teste piloto cumpriu sua função de orientar as próximas decisões do projeto, evitando que o pré-processamento seja aplicado de forma mecânica. As correções e transformações futuras deverão ser baseadas nas evidências observadas nesta análise inicial.

@@ -1,63 +1,160 @@
 # Classificação da Qualidade do Sono com Base no Uso Excessivo de Smartphones Utilizando Weka
 
-## 1 Introdução
-O uso excessivo de smartphones tornou-se um dos principais fatores associados a alterações nos hábitos de sono da população. O aumento do tempo de exposição às telas, especialmente durante a madrugada, pode impactar negativamente a duração e a qualidade do sono, afetando aspectos físicos, cognitivos e emocionais dos indivíduos.  
-Além disso, o crescimento do uso de redes sociais, aplicativos de entretenimento e notificações constantes intensificou comportamentos digitais compulsivos, tornando relevante o estudo da relação entre o uso excessivo de smartphones e problemas relacionados ao sono.  
-Nesse contexto, técnicas de Aprendizado de Máquina podem ser utilizadas para identificar padrões comportamentais associados à qualidade do sono, permitindo a construção de modelos capazes de realizar tarefas de classificação com base em dados comportamentais e hábitos digitais.  
-Este trabalho propõe a utilização do Weka para desenvolver um experimento de classificação supervisionada voltado à predição da qualidade do sono a partir de um dataset sintético gerado com auxílio de modelos de linguagem (LLMs).  
+# 1. Introdução
+
+O uso excessivo de smartphones tornou-se um comportamento comum na sociedade contemporânea, principalmente entre jovens e adultos. O aumento do tempo de exposição às telas, especialmente durante o período noturno, vem sendo associado a problemas relacionados à qualidade do sono, insônia, fadiga e alterações cognitivas.
+
+Com o avanço das técnicas de Inteligência Artificial e Mineração de Dados, tornou-se possível identificar padrões e relações entre variáveis comportamentais e problemas de saúde. Nesse contexto, este trabalho aplica a metodologia KDD (Knowledge Discovery in Databases) para preparação e análise de dados relacionados ao uso de smartphones e qualidade do sono utilizando o software Weka.
+
+A proposta segue os conceitos descritos por Skubisz Neto (2019), enfatizando as etapas de seleção, pré-processamento e preparação dos dados antes da aplicação de algoritmos de mineração.
 
 ---
-# 2 Objetivos
+
+# 2. Objetivos
+
 ## 2.1 Objetivo Geral
-Investigar o impacto do uso excessivo de smartphones na qualidade do sono por meio da aplicação de técnicas de Classificação aprendizado de máquina.
 
----
+Aplicar a metodologia KDD na preparação e organização de um conjunto de dados relacionado ao uso de smartphones e qualidade do sono para posterior análise utilizando o software Weka.
+
 ## 2.2 Objetivos Específicos
-- Construir um dataset sintético contendo informações comportamentais relacionadas ao uso do celular e à qualidade do sono.
-- Realizar análise exploratória e pré-processamento dos dados utilizando os recursos disponíveis no Weka.
-- Analisar os resultados obtidos, identificando padrões entre o uso excessivo de smartphones e a qualidade do sono.
+
+- Estruturar um dataset compatível com o Weka;
+- Realizar limpeza e pré-processamento dos dados;
+- Identificar valores ausentes e possíveis outliers;
+- Preparar os atributos para futura aplicação de algoritmos de classificação;
+- Realizar análise exploratória inicial dos dados.
 
 ---
-# 3 Definição do Problema
-O problema abordado neste trabalho consiste em classificar a qualidade do sono de usuários de smartphones com base em características relacionadas ao comportamento digital e hábitos de vida.
 
-A tarefa escolhida foi a classificação supervisionada binária.
-## 3.1 Entrada
-Os atributos de entrada representam características comportamentais dos usuários, como:
-- tempo de uso diário do smartphone;
-- uso durante a madrugada;
-- horas de sono;
-- nível de estresse;
-- notificações diárias;
-- atividade física;
-- tempo em redes sociais.
-## 3.2 Saída
-A saída esperada corresponde à variável:
-```txt
-qualidade_sono
+# 3. Descrição da Base de Dados
 
-com classes:
-- bom
-- ruim
-```
+O conjunto de dados foi desenvolvido contendo informações relacionadas aos hábitos de uso de smartphones e variáveis associadas à qualidade do sono.
+
+## 3.1 Atributos Utilizados
+
+| Atributo | Descrição | Tipo |
+|---|---|---|
+| age | Idade do usuário | Numérico |
+| gender | Gênero do usuário | Categórico |
+| smartphone_use_hours | Horas diárias de uso do smartphone | Numérico |
+| nighttime_use | Uso do smartphone durante a madrugada | Binário |
+| notifications_daily | Quantidade de notificações diárias | Numérico |
+| screen_time_before_bed | Tempo de tela antes de dormir | Numérico |
+| stress_level | Nível de estresse do usuário | Numérico |
+| physical_activity | Nível de atividade física | Categórico |
+| insomnia | Presença de sintomas de insônia | Binário |
+| sleep_quality | Qualidade do sono (variável alvo) | Categórico |
 
 ---
-## 4 Geração do Dataset Sintético
-O dataset foi construído utilizando modelos de linguagem (LLMs), seguindo as exigências do enunciado do trabalho.  
-A geração dos dados não foi realizada de forma aleatória. Foram utilizadas regras semânticas e relações probabilísticas coerentes com o domínio do problema.  
 
-| Requisito                        | Situação |
-| -------------------------------- | -------- |
-| Pelo menos 500 instâncias        | Atendido |
-| Pelo menos 5 atributos           | Atendido |
-| Presença de atributo irrelevante | Atendido |
-| Presença de valores faltantes    | Atendido |
-| Presença de ruído                | Atendido |
-| Presença de outliers             | Atendido |
-O dataset foi construído considerando diferentes perfis sintéticos de usuários:
-- usuário saudável;
-- estudante universitário;
-- heavy user;
-- gamer noturno;
-- trabalhador corporativo;
-- usuário compulsivo de redes sociais.
+# 4. Metodologia KDD
+
+![[metodologia]]
+
+---
+
+## 4.2 Pré-processamento
+
+A fase de pré-processamento teve como objetivo garantir a qualidade dos dados antes da mineração.
+
+### Procedimentos realizados:
+
+- Verificação de valores ausentes;
+- Padronização de categorias;
+- Análise de consistência;
+- Verificação de faixas numéricas;
+- Identificação de outliers.
+
+---
+
+## 4.3 Análise Exploratória
+
+A análise exploratória permitiu observar padrões iniciais entre os atributos.
+
+### Observações iniciais:
+
+- Usuários com maior tempo de uso noturno apresentaram maior incidência de insônia;
+- Altos níveis de notificações diárias mostraram possível relação com baixa qualidade do sono;
+- A distribuição dos dados apresentou alguns valores extremos.
+
+---
+
+# 5. Análise de Outliers
+
+Durante a visualização dos gráficos de dispersão, foram identificados possíveis outliers em determinadas variáveis.
+
+## Variáveis com possíveis outliers
+
+| Variável | Observação |
+|---|---|
+| insomnia | Pontos isolados fora da distribuição principal |
+| luminosidade_am | Valores extremos acima e abaixo da média |
+| notificacoes_diar | Usuários com quantidade excessiva de notificações |
+
+## Interpretação
+
+Os outliers identificados podem representar:
+
+- Comportamentos extremos reais;
+- Dados inconsistentes;
+- Casos raros relevantes para análise.
+
+Nesta etapa, os outliers foram mantidos para avaliação posterior no Weka.
+
+---
+
+# 6. Preparação para o Weka
+
+A base de dados foi estruturada em formato compatível com o software Weka.
+
+## Etapas planejadas no Weka
+
+As próximas etapas incluem:
+
+- Normalização dos dados;
+- Conversão de atributos categóricos;
+- Aplicação de filtros;
+- Seleção de atributos relevantes;
+- Aplicação de algoritmos de classificação.
+
+Os algoritmos previstos incluem:
+
+- J48;
+- Regressão Logística.
+
+---
+
+# 7. Resultados Esperados
+
+Espera-se identificar padrões que demonstrem a relação entre o uso excessivo de smartphones e problemas relacionados ao sono.
+
+Possíveis resultados esperados:
+
+- Maior uso noturno associado à insônia;
+- Redução da qualidade do sono em usuários com alta exposição à tela;
+- Influência do número de notificações na interrupção do sono.
+
+---
+
+# 8. Limitações do Trabalho
+
+As principais limitações incluem:
+
+- Uso de dados sintéticos;
+- Presença de valores extremos;
+- Dependência de futuras etapas de mineração.
+
+---
+
+# 9. Conclusão
+
+A etapa de preparação dos dados utilizando a metodologia KDD foi concluída com sucesso, permitindo estruturar uma base adequada para futuras aplicações de mineração de dados no Weka.
+
+A análise exploratória indicou padrões relevantes e a presença de possíveis outliers que poderão impactar os modelos preditivos futuros.
+
+---
+
+# 10. Referências
+
+- SKUBISZ NETO, João. Data Mining and KDD Methodology Applied to Predictive Analysis. 2019.
+- Weka Data Mining Software. University of Waikato.
